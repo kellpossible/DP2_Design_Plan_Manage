@@ -4,7 +4,7 @@ Group Members:
 
 | Name            | Student ID | Email                       |
 | --------------- | ---------- | --------------------------- |
-| Jaclyn Seychell |            |                             |
+| Jaclyn Seychell | 100585248  |100585248@student.swin.edu.au|
 | Luke Frisken    | 9505628    | 9505628@student.swin.edu.au |
 | Uros Vukanovic  | 7671725    | 7671725@student.swin.edu.au |
 | Christine Kunak |            |                             |
