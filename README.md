@@ -1,6 +1,7 @@
 # Development Project 2: Design, Plan and Manage
 
 Group Members:
+
 | Name            | Student ID | Email                       |
 | --------------- | ---------- | --------------------------- |
 | Jaclyn Seychell |            |                             |
