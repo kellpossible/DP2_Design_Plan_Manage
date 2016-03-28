@@ -1,4 +1,4 @@
-# Development Project 2: Design, Plan and Manage
+# Development Project 2: Design, Plan and Management
 
 Group Members:
 
