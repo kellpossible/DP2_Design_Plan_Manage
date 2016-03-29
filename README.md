@@ -7,5 +7,5 @@ Group Members:
 | Jaclyn Seychell | 100585248  |100585248@student.swin.edu.au|
 | Luke Frisken    | 9505628    | 9505628@student.swin.edu.au |
 | Uros Vukanovic  | 7671725    | 7671725@student.swin.edu.au |
-| Christine Kunak |            |                             |
+| Christine Kunak | 1612719    |1612719@student.swin.edu.au  |
 | Yasser Gulam    |            |                             |
