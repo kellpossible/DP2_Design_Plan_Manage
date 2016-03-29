@@ -1,0 +1,26 @@
+Date/Location: 29-03-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam.
+Start Time: 5:04 PM
+End Time: 6:00 PM
+
+Decisions
+=========
+* We have decided to upload screenshots regarding burndown and trello to GIT.
+* Considering having fixed agenda to keep meetings efficient. 
+* Considering saving chat from group meetings as evidence. 
+
+[Feel free to add/edit]
+
+Actions
+=======
+* Uros - Design Database Structure and upload to GIT for feedback [Target Date: 29-30th March]
+* Uros - Design/Draw Relationship Diagram. [Target Date: 29-30th March]
+* Luke - Implement database in sqlite [Target Date: 29-XX March]
+* Luke - Setup git structure for file management [Target Date: 29-30th March]
+* Yasser - Sketch out wireframe designs for database GUI [Target Date: 29-30th March]
+* Yasser - Work together with Luke to create PHP wrapper [Target Date: 29-XX March]
+* Jaclyn - GUI framework design (adding reports) [Target Date: 29-XX March] 
+	       *Note: Waiting for wireframe task to be completed
+* Christine - GUI framework design [Target Date: 29-XX March] 
+
+[Feel free to add/edit]
