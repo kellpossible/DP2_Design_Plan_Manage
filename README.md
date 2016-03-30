@@ -8,4 +8,4 @@ Group Members:
 | Luke Frisken    | 9505628    | 9505628@student.swin.edu.au |
 | Uros Vukanovic  | 7671725    | 7671725@student.swin.edu.au |
 | Christine Kunak | 1612719    |1612719@student.swin.edu.au  |
-| Yasser Gulam    |            |                             |
+| Yasser Gulam    | 4904443    |4904443@student.swin.edu.au  |

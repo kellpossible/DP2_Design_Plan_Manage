@@ -1,0 +1,31 @@
+Date/Location: 30-MAR-2016, Telegram Messaging App
+Attendees: LF,JS,UV,CK
+Start Time: 5:10pm
+End Time: 5:54pm
+
+Decisions
+=========
+* Luke and/or Yassar can create PHP template to use in the view  -> later down the track.
+
+* The GUI set up is a php file with html included.
+
+* Create a description outlining the details of each task we are planning to do on trello, as well as a checklist to each task that needs to be completed. 
+
+*Edit page is a button that takes you to form that allows you to edit a stocked item 
+
+Actions
+=======
+* Jaclyn - Start creating the GUI for adding the                    reports
+* Uros - Finished product table design, diagrams 
+* Christine - Start creating Gui for the GUI database               & GUI edit function 
+* Luke - Set up git repo, put in a directory structure
+* Luke - created tables for database based off                  Uros'design & creating the MVC design. 
+* Christine - creating the html table from the database 
+
+* Jaclyn - creating the Bootstrap template for the GUI 
+
+*Uros - 
+
+
+
+
