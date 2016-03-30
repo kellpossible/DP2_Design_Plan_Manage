@@ -1,0 +1,1 @@
+static css files belong in here

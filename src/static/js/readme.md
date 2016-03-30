@@ -1,0 +1,1 @@
+static javascript files belong in here

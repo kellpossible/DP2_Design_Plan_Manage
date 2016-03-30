@@ -1,0 +1,1 @@
+static image files belong in here
