@@ -1,9 +1,12 @@
 <?php
+/**
+* 
+*/
 class WebsiteDatabase extends SQLite3
 {
    function __construct()
    {
-      $this->open('data/database.db');
+      $this->open(__DIR__.'/database.db');
    }
 
    function checkTableExists($table_name) {
