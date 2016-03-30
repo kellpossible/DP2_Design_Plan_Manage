@@ -1,8 +1,17 @@
 <?php
-
+require_once("data/database.php")
 /** Represents a table/list of items in the database */
+
 class TableModel
 {
+	/** constructor using database instance and table_name
+	the database instance needs to have a table with the table_name*/
+	function __construct($db, $table_name)
+	{
+
+	}
+
+
 	/*get item by primary key*/
 	function getItemByKey($pk)
 	{
@@ -19,6 +28,7 @@ class TableModel
 	{
 
 	}
+
 }
 
 /** Represents an item/row in a table of a database */
