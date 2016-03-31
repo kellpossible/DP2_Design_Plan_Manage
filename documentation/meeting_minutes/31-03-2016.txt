@@ -1,0 +1,28 @@
+Date/Location: 29-03-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5:04 PM
+End Time: 6:00 PM
+
+What we did yesterday
+=========
+Uros - working on 2 functions in database.php
+Luke - class design, added files following the class design, created empty functions in classes, folder for static content
+Jaclyn - 
+Yasser - new card in trello to capture duplicate tasks
+Christine - started on inventory table view
+
+Plans today
+=======
+Uros - continue working on database.php, extend database design
+Luke - look at reusable template we could use to make our views easier to implement
+Jaclyn - 
+Yasser - will start working on db link functions
+Christine - will continue working on the inventory table view and start the edit view to include a form
+
+Roadbloacks
+=======
+Uros - Limited knowledge in PHP
+Luke -
+Jaclyn - 
+Yasser - 
+Christine - Waiting on database link to properly link content in view
