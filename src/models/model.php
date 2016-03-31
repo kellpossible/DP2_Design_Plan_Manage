@@ -1,57 +1,120 @@
 <?php
-require_once("data/database.php")
+require_once("data/database.php");
 /** Represents a table/list of items in the database */
 
-class TableModel
+abstract class TableModel implements Iterator, Countable
 {
+	private $mockups;
+
 	/** constructor using database instance and table_name
 	the database instance needs to have a table with the table_name*/
-	function __construct($db, $table_name)
+	public function __construct($db, $table_name)
 	{
-
+		$this->mockups = array();
+		$this->generateMockups();
 	}
+
+	protected function getMockups()
+	{
+		return $this->mockups;
+	}
+
+	protected function addMockup($mockup)
+	{
+		array_push($this->mockups, $mockup);
+	}
+
+	abstract protected function generateMockups();
 
 
 	/*get item by primary key*/
-	function getItemByKey($pk)
+	public function getItemByKey($pk)
+	{
+		foreach($this->mockups as $mockup_item)
+		{
+			if ($mockup_item->getPrimaryKey() == $pk)
+			{
+				return $mockup_item;
+			}
+		}
+
+		return null;
+	}
+
+	public function addItem($item)
+	{
+		$this->addMockup($item);
+	}
+
+	public function deleteItem($pk)
 	{
 
 	}
 
-	//get an item by its name
-	function getItemByName($name)
-	{
 
+	/** Iterator implementation */
+	public function rewind()
+	{
+		return reset($this->mockups);
 	}
 
-	function deleteItem($pk)
+	public function current()
 	{
+		return current($this->mockups);
+	}
 
+	public function key()
+	{
+		return key($this->mockups);
+	}
+
+	public function next()
+	{
+		return next($this->mockups);
+	}
+
+	public function valid()
+	{
+		return key($this->mockups) !== null;
+	}
+
+	public function count()
+	{
+		return count($this->mockups);
 	}
 
 }
 
 /** Represents an item/row in a table of a database */
-class ItemModel
+abstract class ItemModel
 {
-	//pk = primary key
-	function __construct($table_model, $pk)
-	{
+	private $pk;
+	private $table_model;
 
+	//pk = primary key
+	public function __construct($table_model, $pk)
+	{
+		$this->pk = $pk;
+		$this->table_model;
+	}
+
+	protected function getTableModel()
+	{
+		return $this->table_model;
 	}
 
 	//get the primary key of this item
-	function getPrimaryKey()
+	public function getPrimaryKey()
 	{
-
+		return $this->pk;
 	}
 	
-	function getDatabaseValue($column_name)
+	protected function getDatabaseValue($column_name)
 	{
 
 	}
 
-	function setDatabaseValue($column_name, $value)
+	protected function setDatabaseValue($column_name, $value)
 	{
 
 	}

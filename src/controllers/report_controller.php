@@ -1,5 +1,5 @@
 <?php 
-require_once(__DIR__."/controller.php")
+require_once("controllers/controller.php")
 
 /**
 * Controls the viewing/generating of reports
