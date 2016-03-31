@@ -49,6 +49,12 @@ EOF;
       }
    }
 
+   /** Populate the database with test data */
+   function populateDatabase()
+   {
+      //Uros you need to do a $this->exec($sql) with a bunch of insert statements, like the statment above, but inserting data
+   }
+
 
    /**conducts an SQL SELECT on a table using column name and column value.
    returns the selected row in array format
