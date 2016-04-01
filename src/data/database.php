@@ -67,13 +67,23 @@ EOF;
    */
    function selectRowByColumnValue($table_name, $column_name, $column_value)
    {
+      if (checkTableExists($table_name)){
+         $sql = sprintf("SELECT %s FROM %s WHERE %s=%s", 
+                        $column_name, $table_name, $column_name, $column_value);
+      }
 
+      $ret = $this->querySingle($sql, true );
+      $ary = $ret->fetchArray(SQLITE3_NUM);
+      return $ary;
    }
 
    /** deletes a row from a table by column value */
    function deleteRowByColumnValue($table_name, $column_name, $column_value)
    {
-
+      if (checkTableExists($table_name)){
+         $sql = sprintf("DELETE FROM %s WHERE %s=%s", $table_name, $column_name, $column_value);
+         $this->querySingle($sql, false );
+      }
    }
 }
 
