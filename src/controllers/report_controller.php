@@ -6,11 +6,7 @@ require_once("controllers/controller.php")
 */
 class ReportController extends Controller
 {
-	
-	function __construct()
-	{
-		# code...
-	}
+
 }
 
 ?>

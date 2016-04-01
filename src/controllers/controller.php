@@ -2,12 +2,14 @@
 /**
 * A controller as part of the MVC design pattern
 */
-class Controller
+abstract class Controller
 {
-	
-	function __construct()
+	protected $templates;
+	protected $models;
+	function __construct($templates, $models)
 	{
-		# code...
+		$this->templates = $templates;
+		$this->models = $models;
 	}
 }
 ?>

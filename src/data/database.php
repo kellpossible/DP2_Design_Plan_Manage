@@ -31,7 +31,7 @@ class WebsiteDatabase extends SQLite3
    function createTables()
    {
       //check to see if the product inventory table already exists
-      echo "Checking table exists";
+      //echo "Checking table exists";
       if (!$this->checkTableExists("PRODUCT_INVENTORY")) {
          $sql =<<<EOF
          CREATE TABLE PRODUCT_INVENTORY
@@ -43,9 +43,9 @@ class WebsiteDatabase extends SQLite3
          DESCRIPTION     TEXT);
 EOF;
          $ret = $this->exec($sql);
-         databaseDebug($this, $ret, "Created product inventory table");
+         //databaseDebug($this, $ret, "Created product inventory table");
       } else {
-         echo "table already exists, not creating";
+         //echo "table already exists, not creating";
       }
    }
 
@@ -98,7 +98,7 @@ function openDatabase() {
    if(!$db){
       echo $db->lastErrorMsg();
    } else {
-      echo "Opened database successfully\n";
+      //echo "Opened database successfully\n";
    }
 
    $db->createTables();

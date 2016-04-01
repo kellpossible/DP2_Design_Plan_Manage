@@ -7,10 +7,6 @@ require_once("controllers/controller.php")
 class UserController extends Controller
 {
 	
-	function __construct()
-	{
-		# code...
-	}
 }
 
 
