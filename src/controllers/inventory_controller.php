@@ -20,7 +20,7 @@ class InventoryController extends Controller
 	/** Form to create a new item in the product inventory */
 	public function NewItem()
 	{
-
+		/* You'll need to check to see if this is a form submission or just a request to get the form (a GET or a POST). In the case of it being a form submission, something like $_POST() to get the values of the form and update the database with the new item*/
 	}
 
 	/** Form to edit an item in the product inventory */
