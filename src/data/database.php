@@ -53,6 +53,55 @@ EOF;
    function populateDatabase()
    {
       //Uros you need to do a $this->exec($sql) with a bunch of insert statements, like the statment above, but inserting data
+      if ($this->checkTableExists("PRODUCT_INVENTORY")) {
+         $sql =<<<EOF
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (1, Revolon starter kit, 10.55, 15.99, 50, Revolon eyelashes starter kit);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (2, Sukin Cleanser, 6.55, 12.99, 102, Sukin Oil balancing GEL cleanser);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (3, Tom Ford Black Orchid, 80.50, 129.00, 15, Tom Ford Black Orchid 50ml fragrance);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (4, Dior j'adore, 111.25, 149.00, 4, Dior J'adore 75ml fragrance);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (5, Strepsils, 1.29, 4.55, 201, Strepsils 12 pack);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (6, Swisspers Cotton Tips, 2.95, 4.60, 2012, 400 cotton tips in box);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (7, Radox Shower Gel, 1.12, 3.00, 23, Radox uplifted shower GEL 250ml);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (8, Dove go fresh, 3.10, 5.10, 34, Dove go fresh deodorant);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (9, Gilette Mach3, 4.41, 6.80, 44, Gillette mach3 blade and razor);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (10, Just For Men, 7.12, 10.20, 32, Just for men hair colour range blue);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (11, Oral B Toothbrush, 2.29, 4.79, 10, Orab-B toothbrush SOFT);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (12, iWhite instant, 24.49, 35.95, 11, Teeth whitening kit);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (13, Sensodyne repair, 1.20, 3.19, 2, Tooth paste to repair and protect teeth);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (14, Betadine Sore Throat, 6.51, 11.59, 12, Betadine anti bacterial throat gargle);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (15, Nurofen zavance, 8.99, 9.99, 121, Nurofen Zavance tablets 48 pack);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (16, Nature's Own Mens multivitamin, 7.49, 13.99, 24, Mens multivitamin 60 tablets);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (17, Biosource Chia Seeds, 7.00, 9.99, 56, Biosource Chia Seeds, vitamins and super foods);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (18, BioSource Fish Oil, 6.21, 12.99, 21, biosource 1000mg fish oil capsules qty 400);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (19, Blackmores Celery 3000, 5.19, 10.99, 122, Blackmores celery vitamin supplement);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (20, BIOGLAN red krill oil, 14.00, 20.99, 102, Sukin Oil balancing GEL cleanser);
+         INSERT INTO PRODUCT_INVENTORY (ID, NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES (21, Ostelin Vitamin D, 19.58, 25.99, 29, Ostelin Vitamin D supplements);                      
+EOF;
+         $this->exec($sql);
+      } else {
+         //echo "If table doesn't exist, do nothing.";
+      }
    }
 
 
