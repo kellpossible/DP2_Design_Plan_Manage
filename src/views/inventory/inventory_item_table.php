@@ -1,6 +1,7 @@
 <?php $this->layout('base::website_layout', ['title' => 'Product Inventory']) 
 /** show a table of items in the inventory */
-/* Uses the alternative syntax structure: http://php.net/manual/en/control-structures.alternative-syntax.php according to the recommendation here: http://platesphp.com/templates/syntax/ */
+/* Uses the alternative syntax structure: http://php.net/manual/en/control-structures.alternative-syntax.php according to the recommendation here: http://platesphp.com/templates/syntax/
+* Takes product_inventory as a ProductInventory instance */
 
  ?>
 

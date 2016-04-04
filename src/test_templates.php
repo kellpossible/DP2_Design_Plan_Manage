@@ -13,6 +13,7 @@ $templates = new League\Plates\Engine();
 $templates->addFolder('base', 'views/base');
 $templates->addFolder('inventory', 'views/inventory');
 $templates->addFolder('user', 'views/user');
+$templates->addFolder('report', 'views/report');
 echo $templates->render('inventory::edit_inventory_item');
 
 
