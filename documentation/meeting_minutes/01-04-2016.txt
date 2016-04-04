@@ -1,0 +1,28 @@
+Date/Location: 01-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5:04 PM
+End Time: 6:00 PM
+
+What we did yesterday
+=========
+Uros - working on code to add test data into database populateDatabase(), continually learning php
+Luke - Created some test php files to test templates, controllers and models using plates. Documented controller class more, updated class and sequence diagrams, added and documented templating system
+Jaclyn - Access model, view for report gui
+Yasser - Almost finished login page and most of link to db tasks
+Christine - worked on structure html of both edit and view table, looking into plates templating, setup locally, updated header view with searchbar 
+
+Plans today
+=======
+Uros - finish populateDatabase()
+Luke - Stock reports, fixed up some views to work with plates, help team with explaining some of the code
+Jaclyn - will finish off gui for reports
+Yasser - finish login to push to git, start reading up on URL routing for our program
+Christine - try to finish off functionality in the views 
+
+Roadbloacks
+=======
+Uros - 
+Luke -
+Jaclyn - 
+Yasser - 
+Christine - Don't know php plates
