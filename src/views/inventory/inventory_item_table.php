@@ -25,8 +25,8 @@
                 <td><?=$item->getCostPrice() ?></td>
                 <td><?=$item->getStockLevel() ?></td>
                 <td><?=$item->getDescription() ?></td>
-                <td><a href="inventory\.......?item=$itemindex">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><a href="inventory/EditItem?key=<?=$item->getPrimaryKey()?>">Edit</a></td>
+                <td><a href="inventory/DeleteItem?key=<?=$item->getPrimaryKey()?>">Delete</a></td>
             </tr>
         <?php endforeach ?>
 </table>
