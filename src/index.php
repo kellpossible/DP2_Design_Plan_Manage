@@ -7,6 +7,7 @@ require('vendor/autoload.php');
 echo("<h1>Index</h1>");
 echo('<a href="test_templates.php">Test Templates</a><br>');
 echo('<a href="test_models.php">Test Models</a><br>');
-echo('<a href="test_controllers.php">Test Controllers</a>');
+echo('<a href="test_controllers.php">Test Controllers</a><br>');
+echo('<a href="test_database.php">Test Database</a>');
 
 ?>
