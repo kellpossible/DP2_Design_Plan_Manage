@@ -56,31 +56,31 @@ EOF;
       if ($this->checkTableExists("PRODUCT_INVENTORY")) {
          $sql =<<<EOF
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Revolon starter kit", 10.55, 15.99, 50, "Revolon eyelashes starter kit");
+                                VALUES ('Revolon starter kit', 10.55, 15.99, 50, 'Revolon eyelashes starter kit');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Sukin Cleanser", 6.55, 12.99, 102, "Sukin Oil balancing GEL cleanser");
+                                VALUES ('Sukin Cleanser', 6.55, 12.99, 102, 'Sukin Oil balancing GEL cleanser');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Tom Ford Black Orchid", 80.50, 129.00, 15, "Tom Ford Black Orchid 50ml fragrance");
+                                VALUES ('Tom Ford Black Orchid', 80.50, 129.00, 15, 'Tom Ford Black Orchid 50ml fragrance');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Dior j'adore", 111.25, 149.00, 4, "Dior J'adore 75ml fragrance");
+                                VALUES ('Dior j'adore', 111.25, 149.00, 4, 'Dior J'adore 75ml fragrance');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Strepsils", 1.29, 4.55, 201, "Strepsils 12 pack");
+                                VALUES ('Strepsils', 1.29, 4.55, 201, 'Strepsils 12 pack');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Swisspers Cotton Tips", 2.95, 4.60, 2012, "400 cotton tips in box");
+                                VALUES ('Swisspers Cotton Tips', 2.95, 4.60, 2012, '400 cotton tips in box');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Radox Shower Gel", 1.12, 3.00, 23, "Radox uplifted shower GEL 250ml");
+                                VALUES ('Radox Shower Gel', 1.12, 3.00, 23, 'Radox uplifted shower GEL 250ml');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Dove go fresh", 3.10, 5.10, 34, "Dove go fresh deodorant");
+                                VALUES ('Dove go fresh', 3.10, 5.10, 34, 'Dove go fresh deodorant');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Gilette Mach3", 4.41, 6.80, 44, "Gillette mach3 blade and razor");
+                                VALUES ('Gilette Mach3', 4.41, 6.80, 44, 'Gillette mach3 blade and razor');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Just For Men", 7.12, 10.20, 32, "Just for men hair colour range blue");
+                                VALUES ('Just For Men', 7.12, 10.20, 32, 'Just for men hair colour range blue');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Oral B Toothbrush", 2.29, 4.79, 10, "Orab-B toothbrush SOFT");
+                                VALUES ('Oral B Toothbrush', 2.29, 4.79, 10, 'Orab-B toothbrush SOFT');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("iWhite instant", 24.49, 35.95, 11, "Teeth whitening kit");
+                                VALUES ('iWhite instant', 24.49, 35.95, 11, 'Teeth whitening kit');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ("Sensodyne repair", 1.20, 3.19, 2, "Tooth paste to repair and protect teeth");
+                                VALUES ('Sensodyne repair', 1.20, 3.19, 2, 'Tooth paste to repair and protect teeth');
 EOF;
          $this->exec($sql);
       } else {
