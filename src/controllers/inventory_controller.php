@@ -26,7 +26,38 @@ class InventoryController extends Controller
 	/** Form to edit an item in the product inventory */
 	public function EditItem()
 	{
-
+        $itemindex = $_GET['key'];
+        
+        $product_inventory = $this->models['product_inventory'];
+            
+        $item = $product_inventory->getItemByKey($itemindex);
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+		
+			echo $this->templates->render('inventory::edit_inventory_item', ['item' => $item]); 
+		}
+		
+		else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
+			$name = $_POST['name'];
+			$description = $_POST['desc'];
+			$cost_price = $_POST['cost'];
+			$sale_price = $_POST['sale'];
+			$stock_level = $_POST['stock'];
+						
+			$item->setName($name);
+			$item->setDescription($description);
+			$item->setCostPrice($cost_price);
+			$item->setSalePrice($sale_price);
+			$item->setStockLevel($stock_level);
+			
+			echo $this->templates->render('inventory::inventory_item_table');
+			
+		}
+		
+		else {
+			//no request made
+		}
 	}
 
 	/** Delete item in the product inventory */
