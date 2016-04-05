@@ -1,0 +1,28 @@
+Date/Location: 04-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5:05 PM
+End Time: 6:00 PM
+
+What we did yesterday
+=========
+Uros - finished populateDatabase() function with 20+ test records, trying to run locally, added new diagrams for db design
+Luke - Spent a lot of time answering the teams questions, setup controller and view for reports
+Jaclyn - Almost finished report gui, having some trouble with radio buttons but will try to fix them today
+Yasser - Stuck with flow of the program
+Christine - added in functionality for view table, trying to add edit table functionality need to research a lot. still learning to work with templates
+
+Plans today
+=======
+Uros - Work on expanding db design to ensure no need for restructure later 
+Luke - work of outstanding tasks to link db and functionality
+Jaclyn - will add gui into one of the report views in git to push
+Yasser - Learning PHP plates, bootstrap and MVC method.
+Christine - Finalise edit view functionality and ammend code to work with the plates system
+
+Roadbloacks
+=======
+Uros - 
+Luke -
+Jaclyn - 
+Yasser - 
+Christine - Don't know php plates

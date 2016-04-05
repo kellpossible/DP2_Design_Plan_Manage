@@ -5,10 +5,28 @@
 
  ?>
 
-<h1>Product Inventory</h1>
- 
-<ul>
-<?php foreach($product_inventory as $item): ?>
-	<li><b>Product Name:</b> <?=$item->getName()?> <b>and Description:</b> <?=$item->getDescription()?></li>
-<?php endforeach ?>
-</ul>
+<table class='table table-hover'>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Sale price</th>
+                <th>Cost price</th>
+                <th>Stock level</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+    
+        <?php foreach($product_inventory as $item): ?>
+           <tr>
+                <td><?php $item->getName() ?></td>
+                <td><?php $item->getSalePrice() ?></td>
+                <td><?php $item->getCostPrice() ?></td>
+                <td><?php $item->getStockLevel() ?></td>
+                <td><?php $item->getDescription() ?></td>
+                <td><a href="inventory\.......?item=$itemindex">Edit</a></td>
+                <td><a href="#">Delete</a></td>
+            </tr>
+        <?php endforeach ?>
+</table>
