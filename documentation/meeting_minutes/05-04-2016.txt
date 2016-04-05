@@ -1,0 +1,28 @@
+Date/Location: 05-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5:30 PM
+End Time: 6:00 PM
+
+What we did yesterday
+=========
+Uros - 
+Luke - Set up mock data for the user model to help test user functions, answering teams questions and helping with code
+Jaclyn - finished off gui for report
+Yasser - Updated login page, user controller and user model having trouble getting them to function correctly
+Christine - pushed usual screenshots for sprint and updated minutes, pushed inventory table and edit item views to git for code review, began edit item function in controller, added auto increment to the unqiue id in the table, still learning to use the templating system 
+
+Plans today
+=======
+Uros - continue db tasks and sql statements
+Luke - Update db class with new methods, help Uros with his db tasks
+Jaclyn - create branch for local work, update view in views folder with report gui code, begin add item gui
+Yasser - complete the GUI component
+Christine - continue to get the edit view to function properly, finish edititem() in controller and make these 2 work together fo code review
+
+Roadbloacks
+=======
+Uros - Trying to sort of local server
+Luke - Pointed out everyone should be commiting their code to git to help with ensuring people are getting the right help for their tasks, waiting on db code to be able to work of link tasks
+Jaclyn - 
+Yasser - Still trying to understand the structure of the code and how to use new coding concepts to be able to complete tasks
+Christine - 
