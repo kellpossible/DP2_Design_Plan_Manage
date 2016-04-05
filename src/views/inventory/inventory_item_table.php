@@ -20,11 +20,11 @@
     
         <?php foreach($product_inventory as $item): ?>
            <tr>
-                <td><?php $item->getName() ?></td>
-                <td><?php $item->getSalePrice() ?></td>
-                <td><?php $item->getCostPrice() ?></td>
-                <td><?php $item->getStockLevel() ?></td>
-                <td><?php $item->getDescription() ?></td>
+                <td><?=$item->getName() ?></td>
+                <td><?=$item->getSalePrice() ?></td>
+                <td><?=$item->getCostPrice() ?></td>
+                <td><?=$item->getStockLevel() ?></td>
+                <td><?=$item->getDescription() ?></td>
                 <td><a href="inventory\.......?item=$itemindex">Edit</a></td>
                 <td><a href="#">Delete</a></td>
             </tr>
