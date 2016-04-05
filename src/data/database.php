@@ -62,7 +62,7 @@ EOF;
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
                                 VALUES ('Tom Ford Black Orchid', 80.50, 129.00, 15, 'Tom Ford Black Orchid 50ml fragrance');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
-                                VALUES ('Dior j'adore', 111.25, 149.00, 4, 'Dior J'adore 75ml fragrance');
+                                VALUES ('Dior j\'adore', 111.25, 149.00, 4, 'Dior J'adore 75ml fragrance');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
                                 VALUES ('Strepsils', 1.29, 4.55, 201, 'Strepsils 12 pack');
          INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
