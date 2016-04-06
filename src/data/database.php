@@ -52,20 +52,42 @@ EOF;
    /** Populate the database with test data */
    function populateDatabase()
    {
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Revolon starter kit", 10.55, 15.99, 50, "Revolon eyelashes starter kit")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Sukin Cleanser", 6.55, 12.99, 102, "Sukin Oil balancing GEL cleanser")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Tom Ford Black Orchid", 80.50, 129.00, 15, "Tom Ford Black Orchid 50ml fragrance")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Dior jadore", 111.25, 149.00, 4, "Dior Jadore 75ml fragrance")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Strepsils", 1.29, 4.55, 201, "Strepsils 12 pack")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Swisspers Cotton Tips", 2.95, 4.60, 2012, "400 cotton tips in box")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Radox Shower Gel", 1.12, 3.00, 23, "Radox uplifted shower GEL 250ml")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Dove go fresh", 3.10, 5.10, 34, "Dove go fresh deodorant")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Gilette Mach3", 4.41, 6.80, 44, "Gillette mach3 blade and razor")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Just For Men", 7.12, 10.20, 32, "Just for men hair colour range blue")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Oral B Toothbrush", 2.29, 4.79, 10, "Orab-B toothbrush SOFT")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("iWhite instant", 24.49, 35.95, 11, "Teeth whitening kit")');
-      $this->exec('INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Sensodyne repair", 1.20, 3.19, 2, "Tooth paste to repair and protect teeth")');
+      //Uros you need to do a $this->exec($sql) with a bunch of insert statements, like the statment above, but inserting data
+      if ($this->checkTableExists("PRODUCT_INVENTORY")) {
+         $sql =<<<EOF
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Revolon starter kit', 10.55, 15.99, 50, 'Revolon eyelashes starter kit');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Sukin Cleanser', 6.55, 12.99, 102, 'Sukin Oil balancing GEL cleanser');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Tom Ford Black Orchid', 80.50, 129.00, 15, 'Tom Ford Black Orchid 50ml fragrance');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Dior j\'adore', 111.25, 149.00, 4, 'Dior J'adore 75ml fragrance');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Strepsils', 1.29, 4.55, 201, 'Strepsils 12 pack');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Swisspers Cotton Tips', 2.95, 4.60, 2012, '400 cotton tips in box');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Radox Shower Gel', 1.12, 3.00, 23, 'Radox uplifted shower GEL 250ml');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Dove go fresh', 3.10, 5.10, 34, 'Dove go fresh deodorant');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Gilette Mach3', 4.41, 6.80, 44, 'Gillette mach3 blade and razor');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Just For Men', 7.12, 10.20, 32, 'Just for men hair colour range blue');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Oral B Toothbrush', 2.29, 4.79, 10, 'Orab-B toothbrush SOFT');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('iWhite instant', 24.49, 35.95, 11, 'Teeth whitening kit');
+         INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) 
+                                VALUES ('Sensodyne repair', 1.20, 3.19, 2, 'Tooth paste to repair and protect teeth');
+EOF;
+         $this->exec($sql);
+      } else {
+         //echo "If table doesn't exist, do nothing.";
+      }
    }
+
 
    /**conducts an SQL SELECT on a table using column name and column value.
    returns the selected row in array format
@@ -78,20 +100,23 @@ EOF;
    */
    function selectRowByColumnValue($table_name, $column_name, $column_value)
    {
-      
-     //var_dump($this->querySingle('SELECT username FROM user WHERE userid=1'));
-     //var_dump($this->querySingle(('SELECT %s FROM %s WHERE %s=%s, $column_name, $table_name, $column_name, $column_value'));
-     //$sql = sprintf("SELECT %s FROM %s WHERE %s=%s", $column_name, $table_name, $column_name, $column_value);
+      if (checkTableExists($table_name)){
+         $sql = sprintf("SELECT %s FROM %s WHERE %s=%s", 
+                        $column_name, $table_name, $column_name, $column_value);
+      }
 
-     //$ret = $this->querySingle($sql, true );
+      $ret = $this->querySingle($sql, true );
+      $ary = $ret->fetchArray(SQLITE3_NUM);
+      return $ary;
    }
 
    /** deletes a row from a table by column value */
    function deleteRowByColumnValue($table_name, $column_name, $column_value)
    {
-      //$sql = sprintf("DELETE FROM '%s' WHERE '%s'='%s'", $table_name, $column_name, $column_value);
-    $sql = sprintf("DELETE FROM '%s' WHERE '%s' = '%s'", $table_name, $column_name, $column_value);
-    $this->Query($sql);
+      if (checkTableExists($table_name)){
+         $sql = sprintf("DELETE FROM %s WHERE %s=%s", $table_name, $column_name, $column_value);
+         $this->querySingle($sql, false );
+      }
    }
 }
 
