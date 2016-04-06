@@ -22,6 +22,8 @@ $templates->addFolder('report', 'views/report');
 $inventory_controller = new InventoryController($templates, $models);
 $inventory_controller->ViewInventory();
 
+
+$inventory_controller->NewItem();
 $inventory_controller->EditItem();
 
 
