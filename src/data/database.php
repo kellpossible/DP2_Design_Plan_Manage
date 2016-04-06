@@ -43,6 +43,7 @@ class WebsiteDatabase extends SQLite3
          DESCRIPTION     TEXT);
 EOF;
          $ret = $this->exec($sql);
+         $this->populateDatabase();
          //databaseDebug($this, $ret, "Created product inventory table");
       } else {
          //echo "table already exists, not creating";
@@ -89,10 +90,59 @@ EOF;
    /** deletes a row from a table by column value */
    function deleteRowByColumnValue($table_name, $column_name, $column_value)
    {
-      //$sql = sprintf("DELETE FROM '%s' WHERE '%s'='%s'", $table_name, $column_name, $column_value);
-    $sql = sprintf("DELETE FROM '%s' WHERE '%s' = '%s'", $table_name, $column_name, $column_value);
-    $this->Query($sql);
+      $sql = sprintf("DELETE FROM %s WHERE %s=%s", $table_name, $column_name, $column_value);
+      $this->exec($sql);
    }
+
+   /**
+   * table_name: name of the table we are editing
+   * key_column_name: The name of the colun we are using as a key (normally ID)
+   * key_value: The value of the key we use to select the row to edit (normally just the ID value)
+   * column_name: the name of the column we want to edit
+   * new value: the new value to replace the old one
+   */
+   function editValue($table_name, $key_column_name, $key_value, $column_name, $new_value)
+   {
+
+   }
+
+   // Column name then value, type of array key value dictionary
+   function insertRow($row)
+   {
+      $column_names_sql = '';
+      $column_values_sql = '';
+      $i = 0;
+      $len = count($row);
+      foreach($row as $column_name=>$column_value)
+      {
+         $i = $i + 1;
+         $column_names_sql.=$column_name;
+         $column_values_sql.="\"".sprintf("%s", $column_value)."\"";
+
+         if ($i < ($len))
+         {
+            $column_names_sql.=", ";
+            $column_values_sql.=", ";
+         }
+      }
+
+      $sql = sprintf("INSERT INTO PRODUCT_INVENTORY (%s) VALUES (%s);", $column_names_sql, $column_values_sql);
+      $this->exec($sql);
+
+   }
+
+   /**
+   * table_name: name of the table we are editing
+   * key_column_name: The name of the colun we are using as a key (normally ID)
+   * key_value: The value of the key we use to select the row to edit (normally just the ID value)
+   * column_name: the name of the column we want to edit
+   * return: the value we selected
+   */
+   function getValue($table_name, $key_column_name, $key_value, $column_name)
+   {
+
+   }
+
 }
 
 
@@ -120,7 +170,7 @@ function openDatabase() {
    }
 
    $db->createTables();
-      
+
    return $db;
 }
 
