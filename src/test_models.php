@@ -86,5 +86,14 @@ $test_passed = $item->getStockLevel() == 60;
 //$test_passed = true;
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
 
+echo "<h2>Testing: item->pullValuesFromDB()</h2>";
+$item = $product_inventory->getItemByKey(2);
+$item->setStockLevel(50);
+$item->pullValuesFromDB();
+
+$test_passed = $item->getStockLevel() == 60;
+//$test_passed = true;
+echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
+
 $db->close();
 ?>
