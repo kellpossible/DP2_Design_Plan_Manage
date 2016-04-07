@@ -6,10 +6,10 @@ require_once('data/database.php');
 
 $db = openDatabase();
 
-// Testing for deleting Rows. 
+// TESTING: for deleting Rows. 
 /*echo("delete test".$db->deleteRowByColumnValue("PRODUCT_INVENTORY", "STOCK_LEVEL", 2));
 
-// Testing for inserting new Row data.
+// TESTING: for inserting new Row data.
 $db->insertRow([
 	"NAME"=>"New Item",
 	"COST_PRICE"=>"15",
@@ -19,7 +19,7 @@ $db->insertRow([
 	]);
 */
 
-// Test for editing data
+// TESTING: for editing data
 //echo("Edit test:".$db->editValue("PRODUCT_INVENTORY", "ID", 22, "COST_PRICE", 15.99));
 
 $db->close();
