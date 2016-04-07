@@ -34,7 +34,13 @@ abstract class TableModel implements Iterator, Countable
 			$this->table_name,
 			$this->getPKName(),
 			$pk);
-		return $this->itemFromRow($row);
+		if ($row != NULL)
+		{
+			return $this->itemFromRow($row);
+		} else {
+			return NULL;
+		}
+		
 	}
 
 	protected function pullRows()
@@ -147,9 +153,7 @@ abstract class ItemModel
 
 	protected function getRowDictionary()
 	{
-		return [
-			$this->pk_name=>$this->row[$this->pk_name]
-		];
+		return $this->row;
 	}
 	protected function setFromRowDictionary($row)
 	{
@@ -161,7 +165,7 @@ abstract class ItemModel
 	}
 
 	/** Pull values from the database into this object*/
-	protected function pullValuesFromDB()
+	public function pullValuesFromDB()
 	{
 		$row = $this->db->selectRowByColumnValue(
 			$this->table_model->getTableName(),
@@ -172,11 +176,15 @@ abstract class ItemModel
 	}
 
 	/** Push the values in this object into the database */
-	protected function pushValuesToDB()
+	public function pushValuesToDB()
 	{
 		$row = $this->getRowDictionary();
-		unset($row[$table_model->getPKName()]); //we don't want to change the ID
-		$this->db->editRow($row);
+		unset($row[$this->pk_name]); //we don't want to change the ID
+		$this->db->editRow(
+			$this->table_model->getTableName(),
+			$this->pk_name,
+			$this->getPrimaryKey(),
+			$row);
 	}
 
 	public function insertIntoDB()

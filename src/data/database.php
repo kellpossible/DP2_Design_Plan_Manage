@@ -89,9 +89,13 @@ EOF;
          SQLite3::escapeString($column_value));
       //echo $sql;
       $query_result = $this->query($sql);
-      //echo $query_result->numColumns();
       //echo count($query_result->fetchArray());
+      $num_columns = $query_result->numColumns();
+      // echo "<br>num columns: ".$num_columns;
+      // echo "<br>column 0 type: ".$query_result->columnType(0);
+      // echo "<br>SQLITE3_NULL: ".SQLITE3_NULL."<br>";
       return $query_result->fetchArray(SQLITE3_ASSOC);
+      
    }
 
    /** deletes a row from a table by column value */
@@ -171,6 +175,7 @@ EOF;
             $column_values_sql.=", ";
          }
       }
+
 
       $sql = sprintf("INSERT INTO PRODUCT_INVENTORY (%s) VALUES (%s);", $column_names_sql, $column_values_sql);
       $this->exec($sql);
