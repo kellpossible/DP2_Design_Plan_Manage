@@ -39,32 +39,32 @@ class User extends ItemModel
 
 	public function getUsername()
 	{
-		return $this->username;
+		return $this->row["USERNAME"];
 	}
 
 	public function setUsername($username)
 	{
-		$this->username = $username;
+		$this->row["USERNAME"] = $username;
 	}
 
 	public function getFullName()
 	{
-		return $this->full_name;
+		return $this->row["FULL_NAME"];
 	}
 
 	public function setFullName($full_name)
 	{
-		return $this->full_name;
+		$this->row["FULL_NAME"] = $full_name;
 	}
 
 	public function getPassword()
 	{
-		return $this->password;
+		return $this->row["PASSWORD"];
 	}
 
 	public function setPassword($password)
 	{
-		$this->password = $password;
+		$this->password = $this->row["PASSWORD"];
 	}
 }
 ?>
