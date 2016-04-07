@@ -103,7 +103,8 @@ EOF;
    */
    function editValue($table_name, $key_column_name, $key_value, $column_name, $new_value)
    {
-
+      $sql = sprintf("UPDATE %s SET %s = '%s' WHERE %s = %s;", $table_name, $column_name, $new_value, $key_column_name, $key_value);
+      $this->exec($sql);
    }
 
    // Column name then value, type of array key value dictionary
