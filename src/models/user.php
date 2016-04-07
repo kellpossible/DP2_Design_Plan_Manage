@@ -1,9 +1,9 @@
 <?php
-class UserList extends TableModel
+class Users extends TableModel
 {
-	protected function generateMockups()
+	public function __construct($db)
 	{
-		$this->addMockup(new User($this, 0, "test", "Test User", "test123"));
+		parent::__construct($db, "USERS", "User");
 	}
 }
 
@@ -13,18 +13,28 @@ class User extends ItemModel
 	private $username;
 	private $full_name;
 
-	function __construct(
-		$user_list,
+	public function __construct($users_table_model)
+	{
+		parent::__construct($users_table_model);
+		$this->row["PASSWORD"] = NULL;
+		$this->row["USERNAME"] = NULL;
+		$this->row["FULL_NAME"] = NULL;
+	}
+
+	public static function FromValues(
+		$users_table_model,
 		$pk,
 		$username,
 		$full_name,
 		$password
 		)
 	{
-		parent::__construct($user_list, $pk);
-		$this->username = $username;
-		$this->full_name = $full_name;
-		$this->password = $password;
+		$classname = get_called_class();
+		$item = new $classname($users_table_model);
+		$item->setUsername($username);
+		$item->setFullName($full_name);
+		$item->setPassword($password);
+		return $item;
 	}
 
 	public function getUsername()

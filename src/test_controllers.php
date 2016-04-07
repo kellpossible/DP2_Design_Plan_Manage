@@ -9,8 +9,8 @@ require_once('controllers/inventory_controller.php');
 require_once('vendor/autoload.php');
 
 
-$db = openDatabase();
-$product_inventory = new ProductInventory($db, "PRODUCT_INVENTORY");
+$db = openDatabase(true);
+$product_inventory = new ProductInventory($db);
 $models = ['product_inventory' => $product_inventory];
 
 $templates = new League\Plates\Engine();

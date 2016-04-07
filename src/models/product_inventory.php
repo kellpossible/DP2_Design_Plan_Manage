@@ -5,14 +5,9 @@ require_once("models/model.php");
 */
 class ProductInventory extends TableModel
 {
-	protected function generateMockups()
+	public function __construct($db)
 	{
-		$this->addMockup(new InventoryItem($this, 0, "test item 0", 1.0, 5.2, 4, "a very serious item"));
-		$this->addMockup(new InventoryItem($this, 1, "test item 1", 3.0, 7.0, 0, "not a test item"));
-		$this->addMockup(new InventoryItem($this, 2, "test item 2", 4.0, 2.0, 2, "a test item oooh"));
-		$this->addMockup(new InventoryItem($this, 3, "test item 3", 6.0, 100.0, 7, "a test item hurray"));
-		$this->addMockup(new InventoryItem($this, 4, "test item 4", 2.0, 6.0, 1, "a test item nay"));
-		$this->addMockup(new InventoryItem($this, 5, "test item 5", 1.4, 2.2, 87, "a test item yay"));
+		parent::__construct($db, "PRODUCT_INVENTORY", "InventoryItem");
 	}
 }
 
@@ -31,72 +26,82 @@ class InventoryItem extends ItemModel
 	private $description;
 
 	//create a new inventory item object
-	function __construct(
+	function __construct($product_inventory)
+	{
+		parent::__construct($product_inventory);
+		$this->row["NAME"] = NULL;
+		$this->row["COST_PRICE"] = NULL;
+		$this->row["SALE_PRICE"] = NULL;
+		$this->row["STOCK_LEVEL"] = NULL;
+		$this->row["DESCRIPTION"] = NULL;
+	}
+
+	public static function FromValues(
 		$product_inventory,
-		$pk,
 		$name, 
-		$cost_price, 
-		$sale_price, 
+		$cost_price,
+		$sale_price,
 		$stock_level, 
 		$description)
 	{
-		parent::__construct($product_inventory, $pk);
-		$this->name = $name;
-		$this->cost_price = $cost_price;
-		$this->sale_price = $sale_price;
-		$this->stock_level = $stock_level;
-		$this->description = $description;
+		$classname = get_called_class();
+		$item = new $classname($product_inventory);
+		$item->setName($name);
+		$item->setCostPrice($cost_price);
+		$item->setSalePrice($sale_price);
+		$item->setStockLevel($stock_level);
+		$item->setDescription($description);
+		return $item;
 	}
-
 
 	public function getName()
 	{
-		return $this->name;
+		return $this->row["NAME"];
 	}
 
 	public function setName($name)
 	{
-		$this->name = $name;
+		$this->row["NAME"] = $name;
 	}
 
 	public function getCostPrice()
 	{
-		return $this->cost_price;
+		return $this->row["COST_PRICE"];
 	}
 
 	public function setCostPrice($cost_price)
 	{
-		$this->cost_price = $cost_price;
+		$this->cost_price = $this->row["COST_PRICE"];
 	}
 
 	public function getSalePrice()
 	{
-		return $this->sale_price;
+		return $this->row["SALE_PRICE"];
 	}
 
 	public function setSalePrice($sale_price)
 	{
-		$this->sale_price = $sale_price;
+		$this->row["SALE_PRICE"] = $sale_price;
 	}
 
 	public function getStockLevel()
 	{
-		return $this->stock_level;
+		return $this->row["STOCK_LEVEL"];
 	}
 
 	public function setStockLevel($stock_level)
 	{
-		$this->stock_level = $stock_level;
+		$this->row["STOCK_LEVEL"] = $stock_level;
 	}
 
 	public function getDescription()
 	{
-		return $this->description;
+		return $this->row["DESCRIPTION"];
 	}
 
 	public function setDescription($description)
 	{
-		$this->description = $description;
+		$this->row["DESCRIPTION"] = $description;
 	}
 
 }
