@@ -41,6 +41,12 @@ class WebsiteDatabase extends SQLite3
          SALE_PRICE      REAL    NOT NULL,
          STOCK_LEVEL     INTEGER NOT NULL,
          DESCRIPTION     TEXT);
+
+         CREATE TABLE USERS
+         (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+         USERNAME  TEXT NOT NULL,
+         PASSWORD  TEXT NOT NULL,
+         FULL_NAME TEXT NOT NULL);
 EOF;
          $ret = $this->exec($sql);
          $this->populateDatabase();
@@ -67,6 +73,9 @@ INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRI
 INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Oral B Toothbrush", 2.29, 4.79, 10, "Orab-B toothbrush SOFT");
 INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("iWhite instant", 24.49, 35.95, 11, "Teeth whitening kit");
 INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRIPTION) VALUES ("Sensodyne repair", 1.20, 3.19, 2, "Tooth paste to repair and protect teeth");
+
+
+INSERT INTO USERS (USERNAME, PASSWORD, FULL_NAME) VALUES ("tester", "testing", "Test Person");
 EOF;
       $this->exec($sql);
    }

@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 
 require_once('data/database.php');
 require_once('models/product_inventory.php');
+require_once('models/user.php');
 
 echo("<h1>Testing Models</h1>");
 $db = openDatabase(true);
@@ -41,7 +42,6 @@ $item = $product_inventory->getItemByKey(1);
 $item->deleteFromDB();
 
 $test_passed = $initial_count == (count($product_inventory) + 1);
-//$test_passed = true;
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
 
 /*
@@ -61,7 +61,6 @@ $item = InventoryItem::FromValues(
 $item->insertIntoDB();
 
 $test_passed = ( $initial_count + 1 ) == count($product_inventory);
-//$test_passed = true;
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
 
 /*
@@ -70,7 +69,6 @@ Testing that when an item doesn't exist, getItemByKey returns a null value
 echo "<h2>Testing: item->getItemByKey() not exist</h2>";
 $item = $product_inventory->getItemByKey(1);
 $test_passed = $item == NULL;
-//$test_passed = true;
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
 
 /*
@@ -83,7 +81,6 @@ $item->setStockLevel(60);
 $item->pushValuesToDB();
 
 $test_passed = $item->getStockLevel() == 60;
-//$test_passed = true;
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
 
 echo "<h2>Testing: item->pullValuesFromDB()</h2>";
@@ -92,8 +89,27 @@ $item->setStockLevel(50);
 $item->pullValuesFromDB();
 
 $test_passed = $item->getStockLevel() == 60;
-//$test_passed = true;
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
+
+
+echo "<h2>Testing: user model</h2>";
+$users = new Users($db);
+echo "<table>\n";
+foreach($users as $user)
+{
+	echo "<tr>\n";
+	echo sprintf(
+		"<td>USERNAME: %s</td><td>PASSWORD: %s</td><td>FULL_NAME: %s</td>",
+		$user->getUsername(),
+		$user->getPassword(),
+		$user->getFullName());
+}
+echo "</table>\n<br>\n";
+
+$user = $users->getItemByKey(1);
+$test_passed = $user->getUsername() == "tester";
+echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
+
 
 $db->close();
 ?>
