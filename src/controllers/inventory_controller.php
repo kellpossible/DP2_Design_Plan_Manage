@@ -32,18 +32,12 @@ class InventoryController extends Controller
                 $sale_price = $_POST['sale'];
                 $stock_level = $_POST['stock'];
         
-            //new instance of InventoryItem to add new item into the db
-                $item = new InventoryItem($this, 0, $name, $description, $cost_price, $sale_price, $stock_level);
-        
                 $product_inventory = $this->models['product_inventory'];
-                $product_inventory->addItem($item);
-             
-                $item->setName($name);
-                $item->setDescription($description);
-                $item->setCostPrice($cost_price);
-                $item->setSalePrice($sale_price);
-                $item->setStockLevel($stock_level);
                 
+                $item = InventoryItem::FromValues($product_inventory,$name,$cost_price,$sale_price, $stock_level,$description);
+                
+                $item->insertIntoDB();
+            
                 $this->ViewInventory();
         }
         
@@ -86,6 +80,7 @@ class InventoryController extends Controller
                 $item->setSalePrice($sale_price);
                 $item->setStockLevel($stock_level);
 
+                $item->pushValuesToDB();
                 
                 //calling viewinventory function from within this class
                 $this->ViewInventory();
@@ -111,7 +106,7 @@ class InventoryController extends Controller
             
             $product_inventory = $this->models['product_inventory'];
             $item = $product_inventory->getItemByKey($itemindex);
-            $item->deleteItem();
+            $item->deleteFromDB();
             
             $this->ViewInventory();
         }
