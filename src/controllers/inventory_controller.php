@@ -9,7 +9,7 @@ require('vendor/autoload.php');
 class InventoryController extends Controller
 {
 	/** View the product inventory as a table */
-	public function ViewInventory()
+	public function ViewInventory($params=array())
 	{
 		echo $this->templates->render('inventory::inventory_item_table', 
 			[
@@ -18,7 +18,7 @@ class InventoryController extends Controller
 	}
 
 	/** Form to create a new item in the product inventory */
-	public function NewItem()
+	public function NewItem($params=array())
 	{
 		/* You'll need to check to see if this is a form submission or just a request to get the form (a GET or a POST). In the case of it being a form submission, something like $_POST() to get the values of the form and update the database with the new item*/
         
@@ -32,12 +32,18 @@ class InventoryController extends Controller
                 $sale_price = $_POST['sale'];
                 $stock_level = $_POST['stock'];
         
+            //new instance of InventoryItem to add new item into the db
+                $item = new InventoryItem($this, 0, $name, $description, $cost_price, $sale_price, $stock_level);
+        
                 $product_inventory = $this->models['product_inventory'];
+                $product_inventory->addItem($item);
+             
+                $item->setName($name);
+                $item->setDescription($description);
+                $item->setCostPrice($cost_price);
+                $item->setSalePrice($sale_price);
+                $item->setStockLevel($stock_level);
                 
-                $item = InventoryItem::FromValues($product_inventory,$name,$cost_price,$sale_price, $stock_level,$description);
-                
-                $item->insertIntoDB();
-            
                 $this->ViewInventory();
         }
         
@@ -46,7 +52,7 @@ class InventoryController extends Controller
 	/** Form to edit an item in the product inventory */
     
     /** Function checks if get or post is requested, grabs the item from the database depending on the key passed through the URL. If the edit link is clicked from the inventory table view the GET will run and render the edit template view and pass through the item data for the view to access with $this->e($item) */
-	public function EditItem()
+	public function EditItem($params=array())
 	{
         //Checking if there is a key paramater in the URL when edititem is accessed.
         if(isset( $_GET['key'])){
@@ -79,11 +85,10 @@ class InventoryController extends Controller
                 $item->setCostPrice($cost_price);
                 $item->setSalePrice($sale_price);
                 $item->setStockLevel($stock_level);
-
                 $item->pushValuesToDB();
+
                 
-                //calling viewinventory function from within this class
-                $this->ViewInventory();
+                $this->redirect("/index.php/Inventory/ViewInventory");
 
             }
 
@@ -98,7 +103,7 @@ class InventoryController extends Controller
 	}
 
 	/** Delete item in the product inventory */
-	public function DeleteItem()
+	public function DeleteItem($params=array())
 	{
         if(isset( $_GET['key'])){
            
@@ -108,7 +113,7 @@ class InventoryController extends Controller
             $item = $product_inventory->getItemByKey($itemindex);
             $item->deleteFromDB();
             
-            $this->ViewInventory();
+            $this->redirect("/index.php/Inventory/ViewInventory");
         }
 	}
 }

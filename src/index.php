@@ -2,12 +2,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require('vendor/autoload.php');
+require_once("front_controller.php");
+// $fc = new FrontController([
+// 	"controller" => "Inventory",
+// 	"action" => "ViewInventory",
+// 	"params" => array()
+// 	]);
 
-echo("<h1>Index</h1>");
-echo('<a href="test_templates.php">Test Templates</a><br>');
-echo('<a href="test_models.php">Test Models</a><br>');
-echo('<a href="test_controllers.php">Test Controllers</a><br>');
-echo('<a href="test_database.php">Test Database</a>');
+$fc = new FrontController();
+
+$fc->run();
 
 ?>

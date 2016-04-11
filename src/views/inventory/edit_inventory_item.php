@@ -1,4 +1,4 @@
-<?php $this->layout('base::item_form', ['form' => 'edit','action' => 'test_controllers.php?key='.$item->getPrimaryKey().'', 'buttonValue' => 'Save Changes', 'title' => 'Edit Item']) 
+<?php $this->layout('base::item_form', ['form' => 'edit','action' => '/index.php/Inventory/EditItem/?key='.$item->getPrimaryKey().'', 'buttonValue' => 'Save Changes', 'title' => 'Edit Item']) 
 /** show a table of items in the inventory */
 
 ?>

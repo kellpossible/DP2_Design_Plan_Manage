@@ -11,5 +11,12 @@ abstract class Controller
 		$this->templates = $templates;
 		$this->models = $models;
 	}
+
+	protected function redirect($uri)
+	{
+		$host  = $_SERVER['HTTP_HOST'];
+		header(sprintf("Location: http://%s%s", $host, $uri));
+		exit;
+	}
 }
 ?>

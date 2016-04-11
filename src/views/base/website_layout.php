@@ -4,8 +4,8 @@
 		<title><?=$this->e($title)?></title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-sacle=1.0"/>
-		<!----Bootstrap----->
-		<link href="static/css/bootstrap.min.css" rel="stylesheet"/>
+		<!-- Bootstrap -->
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
 	</head>
 	<body>
 		<div class="container - fluid">
@@ -38,9 +38,9 @@
             
 		</div>
 		<!--jQuery - required for Bootstrap's JavaScript plugins) -->
-		<script src="static/js/jquery.min.js"></script>
+		<script src="/static/js/jquery.min.js"></script>
 		
 		<!--All Bootstrap plugin files-->
-		<script src="static/js/bootstrap.min.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
 	</body>
 </html>
