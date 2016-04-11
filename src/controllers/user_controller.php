@@ -1,5 +1,5 @@
 <?php 
-require_once("controllers/controller.php")
+require_once("controllers/controller.php");
 
 /**
 * Controls the user login etc
