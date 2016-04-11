@@ -1,0 +1,28 @@
+Date/Location: 07-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5:05 PM
+End Time: 6:00 PM
+
+What we did yesterday
+=========
+Uros - 
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - added controller functions for add new item and delete item, tested locally. added new template view for generic item form and updated edit and new item views to work with this.
+
+Plans today
+=======
+Uros -
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - Start looking into URL routing for the application
+
+Roadbloacks
+=======
+Uros - 
+Luke -
+Jaclyn - 
+Yasser - 
+Christine - 

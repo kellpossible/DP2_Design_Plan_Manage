@@ -1,0 +1,28 @@
+Date/Location: 06-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5:05 PM
+End Time: 6:00 PM
+
+What we did yesterday
+=========
+Uros - 
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - finalised edit GUI for both get and post using the test mockup functions and tested locally with success.
+
+Plans today
+=======
+Uros -
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - Continue work  on the inventory controller to add new and delete functionality, create generic form template view for item, update edit and add views to work with this. Test functionality between gui and controller with test mockups
+
+Roadbloacks
+=======
+Uros - 
+Luke -
+Jaclyn - 
+Yasser - 
+Christine - 
