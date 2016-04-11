@@ -23,10 +23,21 @@
                 </div>
 			</div>
 			<nav class="navbar navbar-default">
+				<?php $navbar = [
+					"Home" => "/index.php",
+					"Inventory" => "/index.php/Inventory/ViewInventory",
+					"Add Stock Item" => "/index.php/Inventory/NewItem",
+					"Reports" => ""
+				];
+
+				$path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
+				?>
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.php">Home</a></li>
-					<li><a href="#">Add Stock</a></li>
-					<li><a href="#">Reports</a></li>
+					<?php foreach($navbar as $item_name=>$href_value): ?>
+						<li<?php if($path == trim($href_value, "/")): ?> class="active"<?php endif ?>>
+						<a href="<?=$href_value?>"><?=$item_name?></a>
+						</li>
+					<?php endforeach ?>
 				</ul>
 			</nav>
 

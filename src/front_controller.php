@@ -2,6 +2,7 @@
 
 require_once('data/database.php');
 require_once('models/product_inventory.php');
+require_once('models/user.php');
 require_once('controllers/inventory_controller.php');
 require_once('controllers/index_controller.php');
 require_once('vendor/autoload.php');
@@ -30,8 +31,11 @@ class FrontController {
 		$this->templates->addFolder('report', 'views/report');
 		$this->templates->addFolder('index', 'views/index');
 
-		$product_inventory = new ProductInventory($db);
-		$this->models = ['product_inventory' => $product_inventory];
+		$this->models = [
+		'product_inventory' => new ProductInventory($db),
+		'users' => new Users($db)
+		];
+
 
 		if (empty($options)) {
            $this->parseUri();

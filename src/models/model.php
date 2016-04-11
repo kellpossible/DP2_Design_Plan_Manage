@@ -95,6 +95,12 @@ abstract class TableModel implements Iterator, Countable
 	{
 		return "ID";
 	}
+
+	public function newItem()
+	{
+		$item_class = $this->item_class;
+		return new $item_class($this);
+	}
 }
 
 /** Represents an item/row in a table of a database */
