@@ -8,7 +8,7 @@ What we did yesterday
 Uros - 
 Luke - 
 Jaclyn - 
-Yasser - 
+Yasser - Tried to implement GUI to current architecture
 Christine - added controller functions for add new item and delete item, tested locally. added new template view for generic item form and updated edit and new item views to work with this.
 
 Plans today
@@ -16,7 +16,7 @@ Plans today
 Uros -
 Luke - 
 Jaclyn - 
-Yasser - 
+Yasser - Understand MVC and PHP plates
 Christine - Start looking into URL routing for the application
 
 Roadbloacks
@@ -24,5 +24,5 @@ Roadbloacks
 Uros - 
 Luke -
 Jaclyn - 
-Yasser - 
+Yasser - Finding difficulty understanding the flow of the project
 Christine - 

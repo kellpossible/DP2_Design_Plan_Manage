@@ -8,7 +8,7 @@ What we did yesterday
 Uros - No update.
 Luke - Linked database to models.
 Jaclyn-
-Yasser - 
+Yasser - Learning to work with MVC
 Christine - No update. 
 
 Plans today
@@ -16,7 +16,7 @@ Plans today
 Uros - Test Lukes code and tasks in the to be confirmed pile.
 Luke - 
 Jaclyn - 
-Yasser - 
+Yasser - Practice converting Login procedural code to work with MVC
 Christine - Planning to work on linking edit, delete and add controller functions to reworked model functions.
 
 Roadbloacks

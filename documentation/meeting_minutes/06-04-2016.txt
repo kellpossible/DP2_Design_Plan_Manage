@@ -8,7 +8,7 @@ What we did yesterday
 Uros - 
 Luke - 
 Jaclyn - 
-Yasser - 
+Yasser - GUI completed
 Christine - finalised edit GUI for both get and post using the test mockup functions and tested locally with success.
 
 Plans today
@@ -16,7 +16,7 @@ Plans today
 Uros -
 Luke - 
 Jaclyn - 
-Yasser - 
+Yasser - Implement GUI in current architecture
 Christine - Continue work  on the inventory controller to add new and delete functionality, create generic form template view for item, update edit and add views to work with this. Test functionality between gui and controller with test mockups
 
 Roadbloacks
@@ -24,5 +24,5 @@ Roadbloacks
 Uros - 
 Luke -
 Jaclyn - 
-Yasser - 
+Yasser - No understanding of MVC
 Christine - 
