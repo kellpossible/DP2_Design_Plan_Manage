@@ -71,7 +71,7 @@ class InventoryItem extends ItemModel
 
 	public function setCostPrice($cost_price)
 	{
-		$this->cost_price = $this->row["COST_PRICE"];
+		$this->row["COST_PRICE"] = $cost_price;
 	}
 
 	public function getSalePrice()
