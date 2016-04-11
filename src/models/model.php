@@ -187,6 +187,7 @@ abstract class ItemModel
 			$row);
 	}
 
+	/* Insert this object as a row into the database */
 	public function insertIntoDB()
 	{
 		$row = $this->getRowDictionary();
@@ -194,6 +195,7 @@ abstract class ItemModel
 		$this->pk = $this->db->insertRow($row);
 	}
 
+	/* Delete this object from the database */
 	public function deleteFromDB()
 	{
 		$this->db->deleteRowByColumnValue(

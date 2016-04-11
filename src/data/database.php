@@ -9,7 +9,11 @@ class WebsiteDatabase extends SQLite3
    }
 
    /** returns a boolean depending on whether or not the table of $table_name exists
-   in this database */
+   * in this database 
+   * table_name: the name of the table we want to check exists.
+   *
+   * returns: a boolean
+   */
    function checkTableExists($table_name) {
       $sql = sprintf("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='%s'", $table_name);
 
@@ -82,12 +86,12 @@ EOF;
 
    /**conducts an SQL SELECT on a table using column name and column value.
    returns the selected row in array format
-
-   see here for more details on how to implement:
-   http://php.net/manual/en/book.sqlite3.php
-
-   specifically this might be helpful: http://php.net/manual/en/sqlite3.querysingle.php
-
+   * table_name: name of the table we are editing
+   * column_name: the column we are using to search from
+   * column_value: the value in the column we are looking for to reference the row
+   *
+   * returns: an array of key => values where the key is the name of column in the row
+   *  and the values are the values corresponding to that column
    */
    function selectRowByColumnValue($table_name, $column_name, $column_value)
    {
@@ -107,7 +111,11 @@ EOF;
       
    }
 
-   /** deletes a row from a table by column value */
+   /** deletes a row from a table by column value
+   * table_name: name of the table we are editing
+   * column_name: the column we are using to search from
+   * column_value: the value in the column we are looking for to reference the row
+   */
    function deleteRowByColumnValue($table_name, $column_name, $column_value)
    {
       $sql = sprintf(
@@ -136,6 +144,14 @@ EOF;
       $this->exec($sql);
    }
 
+   /* Change the values in a row.
+   * table_name: name of the table we are editing
+   * key_column_name: The name of the colun we are using as a key (normally ID)
+   * key_value: The value of the key we use to select the row to edit 
+   *  (normally just the ID value)
+   * row: an array containing keys for the columns we want to edit, and values for the values of
+   *  those columns
+   */
    function editRow($table_name, $key_column_name, $key_value, $row)
    {
       foreach($row as $column_name=>$column_value)
@@ -149,7 +165,9 @@ EOF;
       }
    }
 
-   /** get an array of arrays of rows */
+   /** get an array of arrays of rows 
+   * table_name: name of the table we are getting
+   */
    function getRows($table_name)
    {
       $sql = sprintf("SELECT * FROM %s", $table_name);
@@ -164,8 +182,9 @@ EOF;
       return $rows;
    }
 
-   // Column name then value, type of array key value dictionary
-   // returns the primary key of the inserted row.
+   /** Column name then value, type of array key value dictionary
+   * returns the primary key of the inserted row.
+   */
    function insertRow($row)
    {
       $column_names_sql = '';
@@ -193,7 +212,9 @@ EOF;
 
    }
 
-   /** get the number of rows in a table */
+   /** get the number of rows in a table 
+   * table_name: name of the table
+   */
    function getNumberOfRows($table_name)
    {
       $sql = "SELECT COUNT(*) as count FROM ".$table_name;
@@ -201,7 +222,7 @@ EOF;
    }
 
    /**
-   * table_name: name of the table we are editing
+   * table_name: name of the table we are getting
    * key_column_name: The name of the colun we are using as a key (normally ID)
    * key_value: The value of the key we use to select the row to edit (normally just the ID value)
    * column_name: the name of the column we want to edit
