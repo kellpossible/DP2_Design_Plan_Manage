@@ -6,12 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-sacle=1.0"/>
 		<!-- Bootstrap -->
 		<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+        <!--jQuery - required for Bootstrap's JavaScript plugins) -->
+		<script src="/static/js/jquery.min.js"></script>
+		<!--All Bootstrap plugin files-->
+		<script src="/static/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div class="container - fluid">
 			<div class ="row">
-				<div class="col-md-8"><h1> Logo </h1></div>
-				<div class="col-md-4"><br />
+				<div class="col-md-8"><img src="/static/images/logo.png"/></div>
+				<div class="col-md-4"><br /><br /><br /><br />
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
@@ -41,17 +45,15 @@
 				</ul>
 			</nav>
 
-		<?=$this->section('content')?>
-
-            
-        <p><b>this is the footer testing layout is functioning</b></p>    
-        
+		<?=$this->section('content')?>  
             
 		</div>
-		<!--jQuery - required for Bootstrap's JavaScript plugins) -->
-		<script src="/static/js/jquery.min.js"></script>
-		
-		<!--All Bootstrap plugin files-->
-		<script src="/static/js/bootstrap.min.js"></script>
+        <footer class="footer">
+            <div class="container">
+                <div class="well">
+                    <p>&copy; People Health Pharmacy Sales Reporting System</p>
+                </div>
+            </div>
+        </footer> 
 	</body>
 </html>

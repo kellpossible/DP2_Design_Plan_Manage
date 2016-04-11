@@ -1,6 +1,5 @@
 <?php $this->layout('base::website_layout', ['title' => $title]) ;
 /** show a table of items in the inventory */
- echo $this->e($title) . ' this is the title of the page';
 ?>
 
 <form name="<?=$this->e($form)?>" action="<?=$this->e($action)?>" method="post">
