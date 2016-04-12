@@ -40,12 +40,12 @@
   <legend>Stock Level</legend>
   
   <?php $this->start('stock')?>
-  <input type="radio" class="form-control"  id="less_than_10" name="less_than_10"<?=$item->getStockLevel(); ?>"/>
+  <input type="radio" class="form-control"  id="less_than_10" name="less_than_10"<?=$item->selectLowStockItems(); ?>"/>
   <label for="less_than_10"> Less than 10</label>
   <?php $this-> stop() ?>
 
   <?php $this->start('stock')?>
-  <input type="radio" class="form-control"  id="greater_than_10" name="greater_than_10"<?=$item->getStockLevel(); ?>"/>
+  <input type="radio" class="form-control"  id="greater_than_10" name="greater_than_10"<?=$item->selectHighStockItems(); ?>"/>
   <label for="greater_than_10"> Greater than 10</label>
   <?php $this-> stop() ?>
 </fieldset>
