@@ -13,4 +13,10 @@
 		<b>Stock Level:</b> <?=$item->getStockLevel()?>
 	</li>
 <?php endforeach ?>
+
+<?php foreach($product_inventory as $item):?>
+	<li>
+		<b>Low Stock:</b> <?=$item->selectLowStockItems()?>
+	</li>
+<?php endforeach?>
 </ul>
