@@ -50,8 +50,13 @@
 		</div>
         <footer class="footer">
             <div class="container">
-                <div class="well">
-                    <p>&copy; People Health Pharmacy Sales Reporting System</p>
+                <div class="well"> 
+				<div id="footer" align="center">
+            <p><a href="#"><strong>User Manual</strong></a> </br>
+             
+             &copy; People Health Pharmacy Sales Reporting System
+               </p>
+               </div>
                 </div>
             </div>
         </footer> 
