@@ -7,6 +7,10 @@
  
 <ul>
 <?php foreach($product_inventory as $item): ?>
-	<li><b>Product Name:</b> <?=$item->getName()?> <b>and Description:</b> <?=$item->getDescription()?></li>
+	<li>
+		<b>Product Name:</b> <?=$item->getName()?> 
+		<b>Description:</b> <?=$item->getDescription()?> 
+		<b>Stock Level:</b> <?=$item->getStockLevel()?>
+	</li>
 <?php endforeach ?>
 </ul>
