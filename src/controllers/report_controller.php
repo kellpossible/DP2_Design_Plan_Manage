@@ -1,5 +1,6 @@
 <?php 
 require_once("controllers/controller.php");
+require_once("models/product_inventory.php"); 
 /**
 * Controls the viewing/generating of reports
 */
