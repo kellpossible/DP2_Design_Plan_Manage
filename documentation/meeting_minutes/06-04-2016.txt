@@ -5,7 +5,7 @@ End Time: 6:00 PM
 
 What we did yesterday
 =========
-Uros - 
+Uros - working on database backend, adding new functions to manipulate records. 
 Luke - 
 Jaclyn - used feedback from the group to change report HTML into php
 Yasser - GUI completed
@@ -13,7 +13,7 @@ Christine - finalised edit GUI for both get and post using the test mockup funct
 
 Plans today
 =======
-Uros -
+Uros - Complete functions, expand php knowledgebase
 Luke - 
 Jaclyn - Continuing to convert and change code to PHP and using the controllers in order to connect to the other team members work
 Yasser - Implement GUI in current architecture

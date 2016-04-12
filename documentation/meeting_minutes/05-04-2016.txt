@@ -5,7 +5,7 @@ End Time: 6:00 PM
 
 What we did yesterday
 =========
-Uros - 
+Uros - Learning PHP, working on db.php
 Luke - Set up mock data for the user model to help test user functions, answering teams questions and helping with code
 Jaclyn - finished off gui for report
 Yasser - Updated login page, user controller and user model having trouble getting them to function correctly

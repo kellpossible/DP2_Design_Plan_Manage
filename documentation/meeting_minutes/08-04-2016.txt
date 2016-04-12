@@ -21,7 +21,7 @@ Christine - Planning to work on linking edit, delete and add controller function
 
 Roadbloacks
 =======
-Uros - 
+Uros - still learning PHP
 Luke - 
 Jaclyn - Understanding the fucntionality of the controller 
 Yasser - 
