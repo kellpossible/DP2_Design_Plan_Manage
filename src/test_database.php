@@ -63,6 +63,41 @@ foreach($rows as $row)
 }
 echo "</table>";
 
+echo "<h2>Select High Stock</h2>";
+$rows = $db->selectHighStockItems("PRODUCT_INVENTORY", "STOCK_LEVEL", "50");
+echo "<table>";
+foreach($rows as $row)
+{
+	echo "<tr>";
+	foreach($row as $column_name=>$column_value)
+	{
+		if($column_name != "STOCK_LEVEL")
+			echo sprintf("<td>%s = %s </td>\n", $column_name, $column_value);
+		else
+			echo sprintf("<td>%s = <strong>%s<strong> </td>\n", $column_name, $column_value);
+	}
+
+	echo "</tr>\n";
+}
+echo "</table>";
+
+echo "<h2>Select Low Stock</h2>";
+$rows = $db->selectLowStockItems("PRODUCT_INVENTORY", "STOCK_LEVEL", "50");
+echo "<table>";
+foreach($rows as $row)
+{
+	echo "<tr>";
+	foreach($row as $column_name=>$column_value)
+	{
+		if($column_name != "STOCK_LEVEL")
+			echo sprintf("<td>%s = %s </td>\n", $column_name, $column_value);
+		else
+			echo sprintf("<td>%s = <strong>%s<strong> </td>\n", $column_name, $column_value);
+	}
+
+	echo "</tr>\n";
+}
+echo "</table>";
 
 
 // TESTING: for editing data
