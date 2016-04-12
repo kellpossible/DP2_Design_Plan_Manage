@@ -18,7 +18,7 @@ class ReportController extends Controller
 		} else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$stock_level_less_than = $_POST['stock_level_less_than'];
 			$report_url = "/index.php/Report/ViewStockReport";
-			$report_args = "?stock_level_less_than=".$stock_level_less_than
+			$report_args = "?stock_level_less_than=".$stock_level_less_than;
 			//send browser to the ViewStockReport page with the 
 			//stock level less than argument
 			$this->redirect($report_url.$report_args);
@@ -29,7 +29,7 @@ class ReportController extends Controller
 		//check to see whether the browser passed in ViewStockReport?stock_level_less_than=xxx
 		$stock_level_less_than = NULL;
 		if(isset( $_GET['stock_level_less_than'])){
-			$stock_level_less_than = $_GET['stock_level_less_than']
+			$stock_level_less_than = $_GET['stock_level_less_than'];
 		}
 		echo $this->templates->render('report::stock_report', 
 			[
