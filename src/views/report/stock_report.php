@@ -10,13 +10,8 @@
 	<li>
 		<b>Product Name:</b> <?=$item->getName()?> 
 		<b>Description:</b> <?=$item->getDescription()?> 
-		<b>Stock Level:</b> <?=$item->getStockLevel()?>
+		<b>Low Stock Level:</b> <?=$item->selectLowStockItems("PRODUCT_INVENTORY","STOCK_LEVEL","10")?>
+		<b>High Stock Level:</b> <?=$item->selectHighStockItems("PRODUCT_INVENTORY","STOCK_LEVEL","10")?> 
 	</li>
 <?php endforeach ?>
-
-<?php foreach($product_inventory as $item):?>
-	<li>
-		<b>Low Stock:</b> <?=$item->selectLowStockItems()?>
-	</li>
-<?php endforeach?>
 </ul>
