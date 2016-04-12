@@ -221,6 +221,48 @@ EOF;
       return $this->querySingle($sql);
    }
 
+   /** Table name, column name and column value
+   * returns an array of an array of records that have
+   * a stock level lower than the column value specified
+   */
+   function selectLowStockItems($table_name, $column_name, $column_value)
+   {
+      $sql = sprintf(
+         "SELECT * FROM %s WHERE %s < \"%s\"", 
+         $table_name, 
+         $column_name, 
+         $column_value);
+
+      $rows = array();
+      $result = $this->query($sql);
+      while($row = $result->fetchArray(SQLITE3_ASSOC))
+      {
+         array_push($rows, $row);
+      }
+      return $rows;
+   }
+
+   /** Table name, column name and column value
+   * returns an array of an array of records that have
+   * a stock level higher than the column value specified
+   */
+   function selectHighStockItems($table_name, $column_name, $column_value)
+   {
+      $sql = sprintf(
+         "SELECT * FROM %s WHERE %s > \"%s\"", 
+         $table_name, 
+         $column_name, 
+         $column_value);
+
+      $rows = array();
+      $result = $this->query($sql);
+      while($row = $result->fetchArray(SQLITE3_ASSOC))
+      {
+         array_push($rows, $row);
+      }
+      return $rows;
+   }
+   
    /**
    * table_name: name of the table we are getting
    * key_column_name: The name of the colun we are using as a key (normally ID)
