@@ -7,7 +7,7 @@ What we did yesterday
 =========
 Uros - 
 Luke - 
-Jaclyn - 
+Jaclyn - used feedback from the group to change report HTML into php
 Yasser - GUI completed
 Christine - finalised edit GUI for both get and post using the test mockup functions and tested locally with success.
 
@@ -15,7 +15,7 @@ Plans today
 =======
 Uros -
 Luke - 
-Jaclyn - 
+Jaclyn - Continuing to convert and change code to PHP and using the controllers in order to connect to the other team members work
 Yasser - Implement GUI in current architecture
 Christine - Continue work  on the inventory controller to add new and delete functionality, create generic form template view for item, update edit and add views to work with this. Test functionality between gui and controller with test mockups
 
@@ -23,6 +23,6 @@ Roadbloacks
 =======
 Uros - 
 Luke -
-Jaclyn - 
+Jaclyn - Trying to learn PHP and controllers 
 Yasser - No understanding of MVC
 Christine - 
