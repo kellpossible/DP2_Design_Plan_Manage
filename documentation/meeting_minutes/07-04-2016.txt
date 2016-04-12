@@ -7,7 +7,7 @@ What we did yesterday
 =========
 Uros - 
 Luke - 
-Jaclyn - 
+Jaclyn - Transfered hmtl code to php
 Yasser - Tried to implement GUI to current architecture
 Christine - added controller functions for add new item and delete item, tested locally. added new template view for generic item form and updated edit and new item views to work with this.
 
@@ -15,7 +15,7 @@ Plans today
 =======
 Uros -
 Luke - 
-Jaclyn - 
+Jaclyn - Created a new_stock_report.php and changed the report controller to suit the needs of the report system. Trying to make the actual displayed report with specifications display using the user's input. 
 Yasser - Understand MVC and PHP plates
 Christine - Start looking into URL routing for the application
 
@@ -23,6 +23,6 @@ Roadbloacks
 =======
 Uros - 
 Luke -
-Jaclyn - 
+Jaclyn - Trying to understand how to use controllers and linking the php to the inventory database for queries.
 Yasser - Finding difficulty understanding the flow of the project
 Christine - 
