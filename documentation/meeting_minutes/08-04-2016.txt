@@ -13,7 +13,7 @@ Christine - No update.
 
 Plans today
 =======
-Uros - Test Lukes code and tasks in the to be confirmed pile.
+Uros - Test Lukes code and tasks in the to be confirmed pile, add functions to db.php
 Luke - 
 Jaclyn - Continuing to create the stock_report.php file to display the final report result 
 Yasser - Practice converting Login procedural code to work with MVC

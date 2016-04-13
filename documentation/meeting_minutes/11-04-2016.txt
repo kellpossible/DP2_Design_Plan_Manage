@@ -5,7 +5,7 @@ End Time: 7:00PM
 
 What we did yesterday
 =========
-Uros - 
+Uros - finish functions for sorting items by numberic values
 Luke - 
 Jaclyn- Updated the report controller and creating new_stock_report.php files to generate new report and the table
 Yasser - No update.
@@ -13,7 +13,7 @@ Christine -
 
 Plans today
 =======
-Uros - 
+Uros - try to clean up code to simplify db functions.
 Luke - 
 Jaclyn - Finish and test report
 Yasser - Learn basics of OOPS and MVC
