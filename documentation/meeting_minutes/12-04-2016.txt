@@ -1,0 +1,28 @@
+Date/Location: 12-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5.00PM
+End Time: 6.30PM
+
+What we did yesterday
+=========
+Uros - 
+Luke - 
+Jaclyn- 
+Yasser - 
+Christine - Added modal functionality to delete links on inventory table
+
+Plans today
+=======
+Uros - 
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - Fix up any errors and test code.
+
+Roadbloacks
+=======
+Uros - 
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - 

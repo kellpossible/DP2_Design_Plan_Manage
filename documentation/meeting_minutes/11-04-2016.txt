@@ -9,7 +9,7 @@ Uros - finish functions for sorting items by numberic values
 Luke - 
 Jaclyn- Updated the report controller and creating new_stock_report.php files to generate new report and the table
 Yasser - No update.
-Christine - 
+Christine - Updated controller functions to work with reworked modal
 
 Plans today
 =======
@@ -17,7 +17,7 @@ Uros - try to clean up code to simplify db functions.
 Luke - 
 Jaclyn - Finish and test report
 Yasser - Learn basics of OOPS and MVC
-Christine - 
+Christine - Add bootstrap model to delete links
 Roadbloacks
 =======
 Uros - 
