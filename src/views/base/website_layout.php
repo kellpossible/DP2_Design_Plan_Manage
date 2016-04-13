@@ -31,7 +31,7 @@
 					"Home" => "/index.php",
 					"Inventory" => "/index.php/Inventory/ViewInventory",
 					"Add Stock Item" => "/index.php/Inventory/NewItem",
-					"Stock Report" => "/index.php/Report/ViewStockReport"
+					"Stock Report" => "/index.php/Report/NewStockReport"
 				];
 
 				$path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");

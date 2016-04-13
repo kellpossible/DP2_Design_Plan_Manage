@@ -225,7 +225,7 @@ EOF;
    * returns an array of an array of records that have
    * a stock level lower than the column value specified
    */
-   function selectLowStockItems($table_name, $column_name, $column_value)
+   function selectLessThan($table_name, $column_name, $column_value)
    {
       $sql = sprintf(
          "SELECT * FROM %s WHERE %s < \"%s\"", 
@@ -246,7 +246,7 @@ EOF;
    * returns an array of an array of records that have
    * a stock level higher than the column value specified
    */
-   function selectHighStockItems($table_name, $column_name, $column_value)
+   function selectGreaterThan($table_name, $column_name, $column_value)
    {
       $sql = sprintf(
          "SELECT * FROM %s WHERE %s > \"%s\"", 

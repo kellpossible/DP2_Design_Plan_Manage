@@ -6,12 +6,13 @@
 <h1>Stock Report</h1>
  
 <ul>
-<?php foreach($product_inventory as $item): ?>
+<?php $selected_stock_items = $product_inventory->getItemsByLessThan("STOCK_LEVEL", $stock_level_less_than); ?>
+<?php //echo(print_r($selected_stock_items)); ?>
+<?php foreach($selected_stock_items as $item): ?>
 	<li>
 		<b>Product Name:</b> <?=$item->getName()?> 
 		<b>Description:</b> <?=$item->getDescription()?> 
-		<b>Low Stock Level:</b> <?=$item->selectLowStockItems("PRODUCT_INVENTORY","STOCK_LEVEL","10")?>
-		<b>High Stock Level:</b> <?=$item->selectHighStockItems("PRODUCT_INVENTORY","STOCK_LEVEL","10")?> 
+		<b>Stock Level:</b> <?=$item->getStockLevel()?>
 	</li>
 <?php endforeach ?>
 </ul>

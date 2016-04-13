@@ -101,6 +101,44 @@ abstract class TableModel implements Iterator, Countable
 		$item_class = $this->item_class;
 		return new $item_class($this);
 	}
+
+
+	public function rowArraysToItemArray($rows)
+	{
+		$items = array();
+		$item_class = $this->item_class;
+
+		foreach ($rows as $row)
+		{
+			$item = $item_class::FromRowArray($this, $row);
+			array_push($items, $item);
+		}
+
+		return $items;
+	}
+
+
+	public function getItemsByLessThan($column_name, $less_than_value)
+	{
+		//todo: check that this is a valid column name for this table
+		$selected_rows = $this->db->selectLessThan(
+			$this->table_name,
+			$column_name,
+			$less_than_value);
+
+		return $this->rowArraysToItemArray($selected_rows);
+	}
+
+	public function getItemsByGreaterThan($column_name, $greater_than_value)
+	{
+		$selected_rows = $this->db->selectGreaterThan(
+			$this->table_name,
+			$column_name,
+			$less_than_value);
+
+		
+		return $this->rowArraysToItemArray($selected_rows);
+	}
 }
 
 /** Represents an item/row in a table of a database */
