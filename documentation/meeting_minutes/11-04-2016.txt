@@ -9,7 +9,7 @@ Uros -
 Luke - 
 Jaclyn- Updated the report controller and creating new_stock_report.php files to generate new report and the table
 Yasser - No update.
-Christine - Updated controller functions to work with reworked modal
+Christine - Updated controller functions to work with reworked modal, Added modal functionality to delete links on inventory table.
 
 Plans today
 =======
@@ -17,7 +17,7 @@ Uros -
 Luke - 
 Jaclyn - Finish and test report
 Yasser - Learn basics of OOPS and MVC
-Christine - Add bootstrap model to delete links
+Christine - N/A
 Roadbloacks
 =======
 Uros - 
