@@ -7,7 +7,7 @@ What we did yesterday
 =========
 Uros - 
 Luke - 
-Jaclyn- 
+Jaclyn- Updated the report controller and creating new_stock_report.php files to generate new report and the table
 Yasser - No update.
 Christine - 
 
@@ -15,7 +15,7 @@ Plans today
 =======
 Uros - 
 Luke - 
-Jaclyn - 
+Jaclyn - Finish and test report
 Yasser - Learn basics of OOPS and MVC
 Christine - 
 Roadbloacks
