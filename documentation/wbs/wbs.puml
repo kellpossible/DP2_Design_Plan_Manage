@@ -1,0 +1,228 @@
+@startuml
+
+object "Sprint 2" as Sprint2 {
+
+**80 Hours**
+}
+
+
+package "User Login" as UserLoginPackage {
+  object "User Login" as Login {
+      User Login and
+      authentication
+      **10 Hours**
+  }
+
+  object "Class/Sequence Design" as LoginDesign {
+      create design diagrams for
+      the user login/authentication
+      system
+  }
+
+  object "Check Models Implemented" as LoginModels {
+      check that the models
+      if required
+      have been implemented
+      properly, and finish them
+      if required
+  }
+
+  object "Login Controller" as LoginController {
+
+  }
+
+  object "Logout Method" as LogoutMethod {
+
+  }
+
+  object "Login Method" as LoginMethod {
+
+  }
+
+  object "Login Page View" as LoginView {
+    A login page with a password
+    and username form.
+  }
+
+  object "Page View Permissions" as PageViewPermissions {
+    Implement permissions in all the controllers
+    to restrict access to views only to authorized
+    users who are logged in.
+    Redirect to login if the user is
+    not logged in.
+  }
+
+
+  Login -down-> LoginDesign
+  Login -down-> LoginModels
+  Login -down-> LoginController
+  Login -down-> LoginView
+  Login -down-> PageViewPermissions
+  LoginController -down-> LogoutMethod
+  LoginController -down-> LoginMethod
+
+}
+
+package "Unit Tests" as UnitTestsPackage {
+  object "Unit Tests" as UnitTests {
+    **20 Hours**
+  }
+
+  object "Write Unit Tests" as WriteUnitTests {
+    write the unit tests for
+    each class. Aiming to get
+    80% code coverage
+  }
+
+  object "Database Unit Tests" as DatabaseUnitTests
+  object "Model Unit Tests" as ModelUnitTests
+  object "Controller Unit Tests" as ControllerUnitTests
+
+
+  object "Prepare" as PrepareUnitTests
+
+  object "Research and Select" as ResearchAndSelect {
+    Research and select a good
+    unit test system for our
+    needs.
+  }
+
+  object "Install Unit Test System" as InstallUnitTests {
+
+  }
+
+  UnitTests -down-> WriteUnitTests
+  UnitTests -down-> PrepareUnitTests
+  PrepareUnitTests -down-> ResearchAndSelect
+  PrepareUnitTests -down-> InstallUnitTests
+  WriteUnitTests -down-> DatabaseUnitTests
+  WriteUnitTests -down-> ModelUnitTests
+  WriteUnitTests -down-> ControllerUnitTests
+}
+
+package "Sales Reports" as SalesReportsPackage {
+  object "Sales Reports" as SalesReports {
+    **30 Hours**
+  }
+
+  object "Preconfigured Reports" as PreconfiguredReports {
+    - What has sold most for the month
+    - What has sold least for the month
+    - Graph Sales Per Time
+    - Graph Sales Income Per Time
+    - Graph Sales for current month. with prediction
+    - Graph Number of stock of an item per Time
+  }
+
+  object "Menu Bar Items" as MenuBarItems {
+    Put the new sales report functionality
+    on the menu bar.
+  }
+
+  object "Sales Report Views" as SalesReportsViews {
+    Write the views for the Preconfigured
+    sales reports
+  }
+
+  object "Select and Implement Graph System" as GraphSystem {
+
+  }
+
+  object "Controller" as SalesReportController {
+    Implement the sales reports into the
+    report_controller.php
+
+
+  }
+
+  object "CSV Exporter" as CSVExport {
+    implement the csv export
+    functionality into the report
+    controller, and create a new
+    view for it.
+  }
+
+  object "CSV Report Download View" as CSVDownload {
+
+  }
+
+  SalesReports -down-> MenuBarItems
+  SalesReports -down-> PreconfiguredReports
+  SalesReports -down-> CSVExport
+  SalesReports -down-> SalesReportController
+  PreconfiguredReports -down-> SalesReportsViews
+  CSVExport -down-> CSVDownload
+  SalesReportsViews -down-> GraphSystem
+
+}
+
+package "Sales API" as SalesAPIPackage {
+  object "Sales API" as SalesAPI {
+    **6 Hours**
+  }
+
+  object "JSON Data Format" as JSONDataFormat {
+    Design/Specify the json data
+    format for the REST API.
+  }
+
+  object "Controller" as SalesAPIController {
+    Write the controller for the
+    sales API.
+  }
+
+  object "Test Script" as TestScript {
+    Write a script to test the api,
+    pretending to be the point of sale
+    software.
+  }
+
+  SalesAPI -down-> JSONDataFormat
+  SalesAPI -down-> SalesAPIController
+  SalesAPI -down-> TestScript
+}
+
+package "Report Database Tables" as ReportDatabaseTablesPackage {
+  object "Report Database Tables" as ReportDatabaseTables {
+    **6 Hours**
+  }
+
+  object Models {
+    **4 Hours**
+  }
+
+  object "Table Design" as TableDesign {
+    Updated database and class diagrams for
+    changes to be made to the database and
+    the models.
+  }
+
+  object "New Table" as NewTable {
+    New table in database.php
+    **2 Hours**
+  }
+
+  object "Sample Data" as SampleData {
+    Insert sample data in database.php
+  }
+
+  ReportDatabaseTables -down-> Models
+  ReportDatabaseTables -down-> TableDesign
+  ReportDatabaseTables -down-> NewTable
+  NewTable -down-> SampleData
+
+
+}
+
+object "User Manual" as Manual {
+  **3 Hours**
+}
+
+Sprint2 -down-> Login
+Sprint2 -down-> Manual
+Sprint2 -down-> UnitTests
+Sprint2 -down-> SalesReports
+Sprint2 -down-> SalesAPI
+Sprint2 -down-> ReportDatabaseTables
+
+@enduml
