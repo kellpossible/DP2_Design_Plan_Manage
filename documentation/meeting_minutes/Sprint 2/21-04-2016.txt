@@ -1,0 +1,28 @@
+Date/Location: 21-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5.00PM
+End Time: 5.05PM
+
+What we did yesterday
+=========
+Uros - Sprint planning
+Luke - Sprint planning, created WBS
+Jaclyn - Sprint planning
+Yasser - Sprint planning
+Christine - Sprint planning, set up burndown chart/estimates for each task, added tasks to trello
+
+Plans today
+=======
+Uros - Database backend/design, won't have much time to focus on today but will make up time
+Luke - Begin login design, won't have much time to focus on today but will make up time
+Jaclyn - Begin most sold weekly/monthly functionality, won't have much time to focus on today but will make up time
+Yasser - JSON sales API
+Christine - Reasearch and implement graph system
+
+Roadbloacks
+=======
+Uros - 
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - 
