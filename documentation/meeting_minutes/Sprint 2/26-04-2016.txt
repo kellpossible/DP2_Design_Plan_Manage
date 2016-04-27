@@ -1,0 +1,22 @@
+Date/Location: 26-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Luke Frisken.
+Start Time: 5.30PM
+End Time: 5.40PM
+
+What we did yesterday
+=========
+Uros - finished design for new table/s
+Luke - worked on login/user class design
+Christine - didnt have much time to work on the task, did more research and local testing of charts functionality
+
+Plans today
+=======
+Uros - working on database backend. new tables/functions etc.
+Luke - finalise login/user class design
+Christine - will begin to integrate chart files into our code
+
+Roadbloacks
+=======
+Uros - 
+Luke - 
+Christine - 
