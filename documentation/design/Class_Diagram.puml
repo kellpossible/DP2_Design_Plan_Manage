@@ -41,10 +41,11 @@ package Models {
     str getUserName()
     str getPassword()
   }
-  class UserList
+
+  class Users
 
   TableModel <|-left- ProductInventory
-  TableModel <|-right- UserList
+  TableModel <|-right- Users
   ItemModel <|-left- ProductInventoryItem
   ItemModel <|-right- User
   TableModel *-down- ItemModel

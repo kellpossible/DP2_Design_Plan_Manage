@@ -5,6 +5,43 @@ class Users extends TableModel
 	{
 		parent::__construct($db, "USERS", "User");
 	}
+
+	/**
+	* performs user login
+	* @param string $username [the username]
+	* @param string $password [the password]
+	* @return bool [whether or not the login was successful]
+	*/
+	public function login($username, $password) : bool
+	{
+		//TODO: implement proper database login stuff;
+		if($username === "test" and $password === "test")
+		{
+			$_SESSION['user'] = array(
+	        'username' => $username,
+	    );
+			return True;
+		}
+		return False;
+	}
+
+	/**
+	* @return bool [whether or not a user is logged in]
+	*/
+	public function isLoggedIn() : bool
+	{
+		if(isset($_SESSION['user'])){
+			return True;
+		}else{
+			return False;
+		}
+	}
+
+	public function logout()
+	{
+		unset($_SESSION['user']);
+	}
+
 }
 
 class User extends ItemModel
