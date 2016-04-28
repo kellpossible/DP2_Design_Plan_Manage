@@ -69,7 +69,11 @@ package Controllers {
    - redirection
   end note
 
-  class LoginController
+  class LoginController {
+    url = /login/
+    --
+    html[Login or redirection on POST from form] login()
+  }
   class InventoryController {
     url = /inventory/
     --
@@ -86,8 +90,8 @@ package Controllers {
   }
 
   Controller <|-- ReportController
-  Controller <|-- UserController
   Controller <|-- InventoryController
+  Controller <|-- LoginController
 }
 
 package Views {
