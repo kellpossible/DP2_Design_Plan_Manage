@@ -42,7 +42,11 @@ package Models {
     str getPassword()
   }
 
-  class Users
+  class Users {
+    bool login(username, password)
+    bool isLoggedIn()
+    void logout()
+  }
 
   TableModel <|-left- ProductInventory
   TableModel <|-right- Users
@@ -56,6 +60,7 @@ package Controllers {
   class Controller {
     url assigned to that controller
     --
+    # void requireLogin(return_uri)
     return_value[View or detail associated with return value] methodName()
   }
 
@@ -74,6 +79,7 @@ package Controllers {
     url = /login/
     --
     html[Login or redirection on POST from form] login()
+    redirection logout()
   }
   class InventoryController {
     url = /inventory/
@@ -130,10 +136,10 @@ package Views {
   website_layout <|-- index
   website_layout <|-- stock_report
   website_layout <|-- new_stock_report
-  website_layout <|-- login
 
   item_form <|-- new_inventory_item
   item_form <|-- edit_inventory_item
+  item_form <|-- login
   website_layout <|-- inventory_item_table
 }
 @enduml
