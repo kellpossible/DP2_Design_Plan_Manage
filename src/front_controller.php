@@ -10,12 +10,15 @@ require_once('controllers/login_controller.php');
 require_once('controllers/report_controller.php');
 require_once('vendor/autoload.php');
 
+use Symfony\Component\HttpFoundation\Request;
+
 
 /** Builds on example from http://www.sitepoint.com/front-controller-pattern-1/ */
 class FrontController {
 	private $templates;
 	private $db;
 	private $models;
+	private $request;
 
 	const DEFAULT_CONTROLLER = "IndexController";
     const DEFAULT_ACTION     = "Index";
@@ -27,7 +30,9 @@ class FrontController {
 	public function __construct($options = array())
 	{
 		$db = openDatabase(false);
+		$this->request = Request::createFromGlobals();
 		$this->templates = new League\Plates\Engine();
+		$this->templates->loadExtension(new League\Plates\Extension\URI($this->request->getPathInfo()));
 		$this->templates->addFolder('base', 'views/base');
 		$this->templates->addFolder('inventory', 'views/inventory');
 		$this->templates->addFolder('user', 'views/user');

@@ -25,7 +25,8 @@ $this->layout('base::item_form',
     'title' => 'Login',
     'action' => '/index.php/Login/Login/',
     'id' => 'login'
-  ]
+  ],
+  'models' => $models
 ]) ;
 /** show a table of items in the inventory */
 ?>

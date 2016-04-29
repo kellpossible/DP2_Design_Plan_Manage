@@ -1,9 +1,11 @@
-<?php $this->layout('base::website_layout', ['title' => $title]) ;
+<?php $this->layout('base::website_layout', [
+  'title' => $title, 'models' => $models]) ;
 /** show a table of items in the inventory */
 ?>
 
 <h1><?=$this->e($message)?></h1>
-<form name="<?=$this->e($form['id'])?>" action="<?=$this->e($form['action'])?>" method="post">
+<form name="<?=$this->e($form['id'])?>" action="<?=$this->e($form['action'])?>"
+  method="post">
     <fieldset class="form-group">
       <?php foreach($form['inputs'] as $form_input): ?>
         <?php if(isset($form_input['label'])): ?>
@@ -20,5 +22,6 @@
         />
       <?php endforeach ?>
     </fieldset>
-    <input type="submit" value="<?=$this->e($form['button_label'])?>" class="btn btn-primary col-md-offset-10 col-md-2"/>
+    <input type="submit" value="<?=$this->e($form['button_label'])?>"
+    class="btn btn-primary col-md-offset-10 col-md-2"/>
 </form>

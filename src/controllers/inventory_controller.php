@@ -14,7 +14,8 @@ class InventoryController extends Controller
 		$this->requireLogin("/index.php/Inventory/ViewInventory/");
 		echo $this->templates->render('inventory::inventory_item_table',
 			[
-				'product_inventory' => $this->models['product_inventory']
+				'product_inventory' => $this->models['product_inventory'],
+				'models' => $this->models
 			]);
 	}
 
@@ -46,7 +47,7 @@ class InventoryController extends Controller
 
                 $this->redirect("/index.php/Inventory/ViewInventory");
         } else {
-            echo $this->templates->render('inventory::new_inventory_item');
+            echo $this->templates->render('inventory::new_inventory_item', ['models' => $this->models]);
         }
 
 	}
@@ -67,7 +68,7 @@ class InventoryController extends Controller
 
             if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-                echo $this->templates->render('inventory::edit_inventory_item', ['item' => $item]);
+                echo $this->templates->render('inventory::edit_inventory_item', ['item' => $item, 'models' => $this->models]);
             }
 
             else if ($_SERVER['REQUEST_METHOD'] === 'POST') {

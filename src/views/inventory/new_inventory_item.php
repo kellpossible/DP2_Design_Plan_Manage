@@ -1,4 +1,9 @@
-<?php $this->layout('base::item_form', ['form' => 'new', 'action' => '/index.php/Inventory/NewItem', 'buttonValue' => 'Add item', 'title' => 'New Item']) 
+<?php $this->layout('base::item_form', [
+  'form' => 'new',
+  'action' => '/index.php/Inventory/NewItem',
+  'buttonValue' => 'Add item',
+  'title' => 'New Item',
+  'models' => $models]);
 /** show a table of items in the inventory */
 
 ?>

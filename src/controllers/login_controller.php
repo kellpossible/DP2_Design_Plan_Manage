@@ -32,7 +32,7 @@ class LoginController extends Controller
 				$message = "Unsuccessful login, please try again";
 			}
 
-      echo $this->templates->render('user::login', ['return_uri' => $return_uri, 'message' => $message]);
+      echo $this->templates->render('user::login', ['return_uri' => $return_uri, 'message' => $message, 'models' => $this->models]);
     } else if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
 			$username = $_POST['username'];
@@ -45,6 +45,12 @@ class LoginController extends Controller
 				$this->redirect("/index.php/Login/Login?unsuccessful=True&return_uri=".$return_uri);
 			}
 		}
+	}
+
+	public function Logout($params=array())
+	{
+		$this->models['users']->logout();
+		$this->redirect("/index.php");
 	}
 }
 

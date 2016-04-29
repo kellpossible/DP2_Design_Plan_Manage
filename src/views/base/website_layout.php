@@ -34,6 +34,15 @@
 					"Stock Report" => "/index.php/Report/NewStockReport"
 				];
 
+        $users = $models['users'];
+
+        if ($users->isLoggedIn())
+        {
+          $navbar["Logout"] = "/index.php/Login/Logout";
+        } else {
+          $navbar["Login"] = "/index.php/Login/Login";
+        }
+
 				$path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
 				?>
 				<ul class="nav navbar-nav">
@@ -45,20 +54,20 @@
 				</ul>
 			</nav>
 
-		<?=$this->section('content')?>  
-            
+		<?=$this->section('content')?>
+
 		</div>
         <footer class="footer">
             <div class="container">
-                <div class="well"> 
+                <div class="well">
 				<div id="footer" align="center">
             <p><a href="/static/images/Test.pdf"><strong>User Manual</strong></a> </br>
-             
+
              &copy; People Health Pharmacy Sales Reporting System
                </p>
                </div>
                 </div>
             </div>
-        </footer> 
+        </footer>
 	</body>
 </html>
