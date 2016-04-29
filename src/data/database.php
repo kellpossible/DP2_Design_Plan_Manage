@@ -64,7 +64,8 @@ class WebsiteDatabase extends SQLite3
          
          CREATE TABLE PURCHASES
          (ID INTEGER PRIMARY KEY AUTOINCREMENT,
-         DATE TEXT NOT NULL,
+         DATE           TEXT     NOT NULL,
+         ID_INVENTORY   INTEGER  NOT NULL,
          FOREIGN KEY(ID_INVENTORY) REFERENCES PRODUCT_INVENTORY(ID));
 EOF;
          $ret = $this->exec($sql);
