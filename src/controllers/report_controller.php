@@ -8,6 +8,7 @@ class ReportController extends Controller
 {
 	public function NewStockReport()
 	{
+		$this->requireLogin("/index.php/Report/NewStockReport");
 		//if we are handling a request to view the new stock report for from the browser
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			echo $this->templates->render('report::new_stock_report',
@@ -27,6 +28,7 @@ class ReportController extends Controller
 	}
 	public function ViewStockReport()
 	{
+		$this->requireLogin("/index.php/Report/ViewStockReport");
 		//check to see whether the browser passed in ViewStockReport?stock_level_less_than=xxx
 		$stock_level_less_than = NULL;
 		if(isset( $_GET['stock_level_less_than'])){

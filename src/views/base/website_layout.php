@@ -28,27 +28,27 @@
 			</div>
 			<nav class="navbar navbar-default">
 				<?php $navbar = [
-					"Home" => "/index.php",
-					"Inventory" => "/index.php/Inventory/ViewInventory",
-					"Add Stock Item" => "/index.php/Inventory/NewItem",
-					"Stock Report" => "/index.php/Report/NewStockReport"
+					"Home" => "/",
+					"Inventory" => "/Inventory/ViewInventory",
+					"Add Stock Item" => "/Inventory/NewItem",
+					"Stock Report" => "/Report/NewStockReport"
 				];
 
         $users = $models['users'];
 
         if ($users->isLoggedIn())
         {
-          $navbar["Logout"] = "/index.php/Login/Logout";
+          $navbar["Logout"] = "/Login/Logout";
         } else {
-          $navbar["Login"] = "/index.php/Login/Login";
+          $navbar["Login"] = "/Login/Login";
         }
 
 				$path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
 				?>
 				<ul class="nav navbar-nav">
 					<?php foreach($navbar as $item_name=>$href_value): ?>
-						<li<?php if($path == trim($href_value, "/")): ?> class="active"<?php endif ?>>
-						<a href="<?=$href_value?>"><?=$item_name?></a>
+						<li <?=$this->uri($href_value,'class="active"')?>>
+						<a href="/index.php<?=$href_value?>"><?=$item_name?></a>
 						</li>
 					<?php endforeach ?>
 				</ul>

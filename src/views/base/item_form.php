@@ -3,7 +3,9 @@
 /** show a table of items in the inventory */
 ?>
 
-<h1><?=$this->e($message)?></h1>
+<?php if(isset($message)): ?>
+  <h1><?=$this->e($message)?></h1>
+<?php endif ?>
 <form name="<?=$this->e($form['id'])?>" action="<?=$this->e($form['action'])?>"
   method="post">
     <fieldset class="form-group">
