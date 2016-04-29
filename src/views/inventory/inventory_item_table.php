@@ -1,4 +1,6 @@
-<?php $this->layout('base::website_layout', ['title' => 'Product Inventory']) 
+<?php $this->layout('base::website_layout', [
+  'title' => 'Product Inventory',
+  'models' => $models])
 /** show a table of items in the inventory */
 /* Uses the alternative syntax structure: http://php.net/manual/en/control-structures.alternative-syntax.php according to the recommendation here: http://platesphp.com/templates/syntax/
 * Takes product_inventory as a ProductInventory instance */
@@ -17,8 +19,8 @@
                 <th></th>
             </tr>
         </thead>
-    
-        <?php foreach($product_inventory as $item): ?>
+
+        <?php foreach($models['product_inventory'] as $item): ?>
            <tr>
                 <td><?=$item->getName() ?></td>
                 <td><?=$item->getSalePrice() ?></td>
@@ -58,10 +60,10 @@
 
 <script>
     $(document).on("click", "#delete", function () {
-        
+
             var key = $(this).data('id');
-            var name =($(this).data('name')); 
-            var cost = $(this).data('cost');        
+            var name =($(this).data('name'));
+            var cost = $(this).data('cost');
             var sale = $(this).data('sale');
             var desc = $(this).data('desc');
 
@@ -69,8 +71,8 @@
             document.getElementById('cost').innerHTML = cost;
             document.getElementById('sale').innerHTML = sale;
             document.getElementById('desc').innerHTML = desc;
-        
+
             document.getElementById("linkdelete").href = "/index.php/Inventory/DeleteItem?key=" + key;
         });
-    
+
 </script>
