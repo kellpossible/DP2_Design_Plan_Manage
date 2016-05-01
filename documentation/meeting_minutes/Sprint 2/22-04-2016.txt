@@ -1,5 +1,5 @@
 Date/Location: 22-04-2016, Telegram Messaging App. 
-Attendees: Uros Vukanovic, Christine Kunak, Luke Frisken
+Attendees: Uros Vukanovic, Christine Kunak, Luke Frisken, Jaclyn Seychell
 Start Time: 7.25PM
 End Time: 7.32PM
 
@@ -8,15 +8,18 @@ What we did yesterday
 Uros - Worked on db design, pushed initial design to git
 Luke - No update for yesterday, but will catch up on Monday
 Christine - Researched chart system we could use
+Jaclyn -  No update for yesterday, but will catch up on Monday
 
 Plans today
 =======
 Uros - Will work on porting it into database.php
 Luke - Begin login class design
 Christine - Will test it out to see if it's easy for us to implement with our reports
+Jaclyn - Desining layout of most sold report - what is needed
 
 Roadbloacks
 =======
 Uros - 
 Luke - 
 Christine - 
+Jaclyn - 
