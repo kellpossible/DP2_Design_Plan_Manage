@@ -6,7 +6,7 @@ require_once("models/purchased_item.php");
 * Controls the viewing/generating of reports
 */
 
-class ReportController extends Controller
+class SalesReportController extends Controller
 {
 	public function NewStockReport()
 	{
