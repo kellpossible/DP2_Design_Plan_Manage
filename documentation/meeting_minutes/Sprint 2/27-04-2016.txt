@@ -1,5 +1,5 @@
 Date/Location: 27-04-2016, Telegram Messaging App. 
-Attendees: Uros Vukanovic, Christine Kunak, Luke Frisken.
+Attendees: Uros Vukanovic, Christine Kunak, Luke Frisken, Jaclyn Seychell
 Start Time: 5.15PM
 End Time: 5.30PM
 
@@ -8,15 +8,18 @@ What we did yesterday
 Uros - Created empty table code 
 Luke - worked on login/user class design, tested functionality in one file
 Christine - integrated chart includes into new chart branch
+Jaclyn - Researched about controller and model for reports
 
 Plans today
 =======
 Uros - entering dummy data for reports (will change table name to purchases), decided to stick to one table for the reports.
 Luke - begin implementing login functionality
 Christine - Seperate logic into view and controller and figure out how to grab data from db into graphs, will work on graph for purchased stock level
+Jaclyn - creating new model and controller for the purchased item table, based off uros'design and implementation
 
 Roadbloacks
 =======
 Uros - sqlite doesn't have a data class for date but will look at using associated functions.
 Luke - 
 Christine - Having trouble getting db connection to work correctly
+Jaclyn - having trouble deciding what functionality to be placed in the controller
