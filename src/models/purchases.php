@@ -15,7 +15,13 @@ class Purchases extends TableModel
 	{
 		return "purchases";
 	}
-	
+
+
+	/** count purchases which correspond to a single inventory item */
+	public function countByInventoryItem($id_inventory)
+	{
+		return $this->countByColumnValue("ID_INVENTORY", $id_inventory);
+	}
 }
 /** Represents an inventory item in the product inventory table.
 */
