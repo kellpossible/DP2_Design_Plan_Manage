@@ -80,7 +80,7 @@ EOF;
       }
    }
 
-   /** Populate the database with test data test */
+   /** Populate the database with test data */
    function populateDatabase()
    {
       $sql =<<<EOF
