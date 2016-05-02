@@ -32,6 +32,13 @@ package Models {
 
   class TableModel {
     ItemModel getItemByKey(int PK)
+    getItemsByLessThan(string column_name, int less_than_value)
+    getItemsByGreaterThan(string column_name, int greater_than_value)
+    getMostSold(string start_date)
+    getLeastSold(string start_date)
+    getSalesIncome(string start_date)
+    getSales(string start_date)
+    getStockSold(string start_date)
   }
 
   class User {
@@ -47,8 +54,16 @@ package Models {
     bool isLoggedIn()
     void logout()
   }
+  
+  class PurchasedItem {
+   DateTime getDate()
+   void setDate(DateTime)
+   int getID_inventory()
+   void setID_inventory(int)
+  }
 
   TableModel <|-left- ProductInventory
+  TableModel <|-up- PurchasedItem
   TableModel <|-right- Users
   ItemModel <|-left- ProductInventoryItem
   ItemModel <|-right- User
@@ -95,10 +110,23 @@ package Controllers {
     --
     html[StockReport] ViewStockReport()
   }
+  
+  
+  class SalesReportController {
+    url = /salesreport/
+    
+    html[SalesIncomeReport] SalesIncomeReport()
+    html[SalesReport] SalesReport()
+    html[SalesStockReport] SalesStockReport()
+    html[MostSoldReport] MostSoldReport()
+    html[LeastSoldReport] LeastSoldReport()
+    
+  }
 
-  Controller <|-- ReportController
-  Controller <|-- InventoryController
-  Controller <|-- LoginController
+  Controller <|-up- SalesReportController
+  Controller <|-right- ReportController
+  Controller <|-down- InventoryController
+  Controller <|-down- LoginController
 }
 
 package Views {
@@ -109,6 +137,11 @@ package Views {
   package report {
     class new_stock_report
     class stock_report
+    class most_sold_report
+    class least_sold_report
+    class income_report
+    class sales_stock_report
+    class sales_report
   }
 
   package inventory {
@@ -133,9 +166,14 @@ package Views {
   website_layout <|-- edit_item
   website_layout <|-- item_table
   website_layout <|-- item_form
-  website_layout <|-- index
+  website_layout <|-up- index
   website_layout <|-- stock_report
   website_layout <|-- new_stock_report
+  website_layout <|-- most_sold_report
+  website_layout <|-- least_sold_report
+  website_layout <|-- sales_report
+  website_layout <|-- income_report
+  website_layout <|-- sales_stock_report
 
   item_form <|-- new_inventory_item
   item_form <|-- edit_inventory_item
