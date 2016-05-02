@@ -5,9 +5,14 @@ require_once("models/model.php");
 */
 class ProductInventory extends TableModel
 {
-	public function __construct($db)
+	public function __construct($db, $models)
 	{
-		parent::__construct($db, "PRODUCT_INVENTORY", "InventoryItem");
+		parent::__construct($db, $models, "PRODUCT_INVENTORY", "InventoryItem");
+	}
+
+	public static function getModelName()
+	{
+		return "product_inventory";
 	}
 }
 
@@ -38,10 +43,10 @@ class InventoryItem extends ItemModel
 
 	public static function FromValues(
 		$product_inventory,
-		$name, 
+		$name,
 		$cost_price,
 		$sale_price,
-		$stock_level, 
+		$stock_level,
 		$description)
 	{
 		$classname = get_called_class();
