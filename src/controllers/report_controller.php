@@ -1,11 +1,24 @@
 <?php
 require_once("controllers/controller.php");
 require_once("models/product_inventory.php");
+require_once("models/purchases.php");
+require_once('vendor/autoload.php');
+require_once('lib/inc/chartphp_dist.php');
 /**
 * Controls the viewing/generating of reports
 */
 class ReportController extends Controller
 {
+    
+    private $p = NULL;
+    
+    
+    public function InitialiseGraph()
+    {
+        $p = new chartphp(); 
+        
+    }
+    
 	public function NewStockReport()
 	{
 		$this->requireLogin("/index.php/Report/NewStockReport");
@@ -42,6 +55,53 @@ class ReportController extends Controller
 		} else {
 			echo("invalid report arguments");
 		}
+	}
+    
+    public function SalesIncomeReport()
+    {
+        $this->requireLogin("/index.php/Report/SalesIncomeReport");
+        
+        
+        //$this->InitialiseGraph();
+        echo $this->templates->render('report::income_report');
+            
+            
+        
+        
+    }
+
+	//using the example found here: http://code.stephenmorley.org/php/creating-downloadable-csv-files/
+	public function DownloadSalesReportCSV()
+	{
+		$this->requireLogin("/index.php/Report/DownloadSalesReportCSV");
+
+		// output headers so that the file is downloaded rather than displayed
+		header('Content-Type: text/csv; charset=utf-8');
+		header('Content-Disposition: attachment; filename=sales_report.csv');
+
+		echo "testing";
+
+		// create a file pointer connected to the output stream
+		$output = fopen('php://output', 'w');
+		fputcsv($output, array('Product Name', 'Stock Level', 'Total Sales', 'Total Revenue'));
+
+		foreach($this->models[ProductInventory::getModelName()] as $item)
+		{
+			$item_name = $item->getName();
+			$item_stock_level = (int)$item->getStockLevel();
+			$purchases = $this->models[Purchases::getModelName()];
+			$total_sales = $purchases->countByInventoryItem($item->getPrimaryKey());
+			$item_sale_price = (float)$item->getSalePrice();
+			$total_revenue = $item_sale_price * ((float)$total_sales);
+
+			fputcsv($output, array($item_name,
+				strval($item_stock_level),
+				strval($total_sales),
+				strval($total_revenue)));
+
+		}
+
+		fclose($output);
 
 	}
 }

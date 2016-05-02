@@ -7,16 +7,26 @@ abstract class TableModel implements Iterator, Countable
 	protected $db;
 	protected $table_name;
 	protected $item_class;
+	protected $models;
 	private $rows;
+
 
 
 	/** constructor using database instance and table_name
 	the database instance needs to have a table with the table_name*/
-	public function __construct($db, $table_name, $item_class)
+	public function __construct($db, $models, $table_name, $item_class)
 	{
 		$this->db = $db;
 		$this->table_name = $table_name;
 		$this->item_class = $item_class;
+		$this->models = $models;
+	}
+
+	public static abstract function getModelName();
+
+	public function getModel($model_name)
+	{
+		return $this->models[$model_name];
 	}
 
 
@@ -40,7 +50,13 @@ abstract class TableModel implements Iterator, Countable
 		} else {
 			return NULL;
 		}
-		
+
+	}
+
+	/** count purchases which correspond to a single inventory item */
+	public function countByColumnValue($column_name, $column_value)
+	{
+		return $this->db->countRowsByColumnValue($this->table_name, $column_name, $column_value);
 	}
 
 	protected function pullRows()
@@ -136,7 +152,7 @@ abstract class TableModel implements Iterator, Countable
 			$column_name,
 			$less_than_value);
 
-		
+
 		return $this->rowArraysToItemArray($selected_rows);
 	}
 }

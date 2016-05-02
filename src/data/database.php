@@ -9,7 +9,7 @@ class WebsiteDatabase extends SQLite3
    }
 
    /** returns a boolean depending on whether or not the table of $table_name exists
-   * in this database 
+   * in this database
    * table_name: the name of the table we want to check exists.
    *
    * returns: a boolean
@@ -34,7 +34,7 @@ class WebsiteDatabase extends SQLite3
    /* Create tables if they don't already exist and add necessary items */
 
    /* 1.2 Date and Time Datatype
-      SQLite does not have a storage class set aside for storing dates and/or times. Instead, 
+      SQLite does not have a storage class set aside for storing dates and/or times. Instead,
       the built-in Date And Time Functions of SQLite are capable of storing dates and times as TEXT, REAL, or INTEGER values:
 
       TEXT as ISO8601 strings ("YYYY-MM-DD HH:MM:SS.SSS").
@@ -61,7 +61,7 @@ class WebsiteDatabase extends SQLite3
          USERNAME  TEXT NOT NULL,
          PASSWORD  TEXT NOT NULL,
          FULL_NAME TEXT NOT NULL);
-         
+
          CREATE TABLE PURCHASES
          (ID INTEGER PRIMARY KEY AUTOINCREMENT,
          DATE           TEXT     NOT NULL,
@@ -98,77 +98,77 @@ INSERT INTO PRODUCT_INVENTORY (NAME, COST_PRICE, SALE_PRICE, STOCK_LEVEL, DESCRI
 INSERT INTO USERS (USERNAME, PASSWORD, FULL_NAME) VALUES ("tester", "testing", "Test Person");
 
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-01 10:15:22.222"), 1);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-01 10:15:22.222"), 1);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-01 12:15:22.222"), 1);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-01 10:15:22.222"), 1);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-01 10:15:22.222"), 1);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-01 12:15:22.222"), 1);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-02 16:25:22.222"), 2);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-02 12:21:22.222"), 3);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-02 16:15:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-02 16:25:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-02 12:21:22.222"), 3);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-02 16:15:22.222"), 2);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-03 08:22:22.222"), 1);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-03 14:44:22.222"), 9);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-03 10:21:22.222"), 11);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-03 09:55:22.222"), 5);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-03 08:22:22.222"), 1);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-03 14:44:22.222"), 9);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-03 10:21:22.222"), 11);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-03 09:55:22.222"), 5);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-04 13:11:22.222"), 13);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-04 08:07:22.222"), 11);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-04 13:11:22.222"), 13);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-04 08:07:22.222"), 11);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-05 09:45:22.222"), 5);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-05 09:44:22.222"), 1);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-05 10:01:22.222"), 12);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-05 09:45:22.222"), 5);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-05 09:44:22.222"), 1);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-05 10:01:22.222"), 12);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-06 10:05:22.222"), 12);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-06 10:05:22.222"), 2);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-06 10:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-06 10:05:22.222"), 12);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-06 10:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-06 10:05:22.222"), 2);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-07 08:05:22.222"), 2);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-07 08:05:22.222"), 2);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-07 08:05:22.222"), 2);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-07 08:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-07 08:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-07 08:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-07 08:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-07 08:05:22.222"), 2);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-08 08:05:22.222"), 2);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-08 08:05:22.222"), 2);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-08 08:05:22.222"), 2);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-08 08:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-08 08:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-08 08:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-08 08:05:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-08 08:05:22.222"), 2);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-09 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-09 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-09 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-09 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-09 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-09 11:23:22.222"), 8);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-10 18:08:22.222"), 1);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-10 16:25:22.222"), 1);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-10 12:21:22.222"), 2);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-10 18:08:22.222"), 1);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-10 16:25:22.222"), 1);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-10 12:21:22.222"), 2);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-11 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-11 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-11 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-11 11:23:22.222"), 8);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-12 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-12 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-12 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-12 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-12 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-12 11:23:22.222"), 8);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-13 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-13 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-13 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-13 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-13 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-13 11:23:22.222"), 8);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-14 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-14 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-14 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-14 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-14 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-14 11:23:22.222"), 8);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-15 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-15 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-15 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-15 11:23:22.222"), 8);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-16 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-16 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-16 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-16 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-16 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-16 11:23:22.222"), 8);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-17 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-17 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-17 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-17 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-17 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-17 11:23:22.222"), 8);
 
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-18 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-18 11:23:22.222"), 8);
-INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-18 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-18 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-18 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-18 11:23:22.222"), 8);
 
 INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-19 11:23:22.222"), 8);
 INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-19 11:23:22.222"), 8);
@@ -208,6 +208,23 @@ INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22
 INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
 INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
 
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-01-27 11:23:22.222"), 8);
+
+
 
 
 
@@ -239,7 +256,20 @@ EOF;
       // echo "<br>column 0 type: ".$query_result->columnType(0);
       // echo "<br>SQLITE3_NULL: ".SQLITE3_NULL."<br>";
       return $query_result->fetchArray(SQLITE3_ASSOC);
-      
+   }
+
+   /** counts rows by column value
+   */
+   function countRowsByColumnValue($table_name, $column_name, $column_value)
+   {
+     $sql = sprintf(
+         "SELECT COUNT(*) FROM %s WHERE %s=\"%s\"",
+         $table_name,
+         $column_name,
+         SQLite3::escapeString($column_value));
+      //echo $sql;
+      $query_result = $this->querySingle($sql);
+      return $query_result;
    }
 
    /** deletes a row from a table by column value
@@ -278,7 +308,7 @@ EOF;
    /* Change the values in a row.
    * table_name: name of the table we are editing
    * key_column_name: The name of the colun we are using as a key (normally ID)
-   * key_value: The value of the key we use to select the row to edit 
+   * key_value: The value of the key we use to select the row to edit
    *  (normally just the ID value)
    * row: an array containing keys for the columns we want to edit, and values for the values of
    *  those columns
@@ -288,15 +318,15 @@ EOF;
       foreach($row as $column_name=>$column_value)
       {
          $this->editValue(
-            $table_name, 
+            $table_name,
             $key_column_name,
-            $key_value, 
-            $column_name, 
+            $key_value,
+            $column_name,
             $column_value);
       }
    }
 
-   /** get an array of arrays of rows 
+   /** get an array of arrays of rows
    * table_name: name of the table we are getting
    */
    function getRows($table_name)
@@ -309,7 +339,7 @@ EOF;
       {
          array_push($rows, $row);
       }
-      
+
       return $rows;
    }
 
@@ -343,7 +373,7 @@ EOF;
 
    }
 
-   /** get the number of rows in a table 
+   /** get the number of rows in a table
    * table_name: name of the table
    */
    function getNumberOfRows($table_name)
@@ -359,9 +389,9 @@ EOF;
    function selectLessThan($table_name, $column_name, $column_value)
    {
       $sql = sprintf(
-         "SELECT * FROM %s WHERE %s < \"%s\"", 
-         $table_name, 
-         $column_name, 
+         "SELECT * FROM %s WHERE %s < \"%s\"",
+         $table_name,
+         $column_name,
          $column_value);
 
       $rows = array();
@@ -380,9 +410,9 @@ EOF;
    function selectGreaterThan($table_name, $column_name, $column_value)
    {
       $sql = sprintf(
-         "SELECT * FROM %s WHERE %s > \"%s\"", 
-         $table_name, 
-         $column_name, 
+         "SELECT * FROM %s WHERE %s > \"%s\"",
+         $table_name,
+         $column_name,
          $column_value);
 
       $rows = array();
@@ -393,7 +423,7 @@ EOF;
       }
       return $rows;
    }
-   
+
    /**
    * table_name: name of the table we are getting
    * key_column_name: The name of the colun we are using as a key (normally ID)
@@ -445,6 +475,6 @@ function openDatabase($testing=false) {
 }
 
 
-   
-// 
+
+//
 ?>

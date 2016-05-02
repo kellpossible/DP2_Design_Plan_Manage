@@ -1,4 +1,6 @@
 <?php
+require_once("models/user.php");
+
 /**
 * A controller as part of the MVC design pattern
 */
@@ -29,7 +31,7 @@ abstract class Controller
 	*/
 	protected function requireLogin($return_uri)
 	{
-		$users = $this->models['users'];
+		$users = $this->models[Users::getModelName()];
 		if($users->isLoggedIn()){ // OR isset($_SESSION['user']), if array
 		// Logged In
 		}else{

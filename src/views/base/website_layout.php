@@ -31,7 +31,17 @@
 					"Home" => "/",
 					"Inventory" => "/Inventory/ViewInventory",
 					"Add Stock Item" => "/Inventory/NewItem",
-					"Stock Report" => "/Report/NewStockReport"
+					"Reports" => 
+                    [
+                        "Stock Report" => "/Report/NewStockReport",
+                        "Income Report" => "/Report/SalesIncomeReport",
+                        "Sales Report" => "/Report/SalesReport",
+                        "Stock Sold" => "/Report/SalesStockReport",
+                        "Most Items Sold" => "/Report/MostSoldReport",
+                        "Least Items Sold" => "/Report/LeastSoldReport",
+                    ],
+                    "Download Report CSV" => "/Report/DownloadSalesReportCSV",
+                    
 				];
 
         $users = $models['users'];
@@ -47,9 +57,27 @@
 				?>
 				<ul class="nav navbar-nav">
 					<?php foreach($navbar as $item_name=>$href_value): ?>
+                        <?php if($item_name != 'Reports') :?>
 						<li <?=$this->uri($href_value,'class="active"')?>>
 						<a href="/index.php<?=$href_value?>"><?=$item_name?></a>
 						</li>
+                    
+                        <?php else :?>
+                    
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
+                            <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                            <?php foreach ($navbar['Reports'] as $report=>$href): ?>
+                                <li <?=$this->uri($href,'class="active"')?>>
+						          <a href="/index.php<?=$href?>"><?=$report?></a>
+						        </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                            
+                        <?php endif; ?>
 					<?php endforeach ?>
 				</ul>
 			</nav>
@@ -61,7 +89,7 @@
             <div class="container">
                 <div class="well">
 				<div id="footer" align="center">
-            <p><a href="/static/images/Test.pdf"><strong>User Manual</strong></a> </br>
+            <p><a href="/static/images/Test.pdf"><strong>User Manual</strong></a> <br/>
 
              &copy; People Health Pharmacy Sales Reporting System
                </p>
