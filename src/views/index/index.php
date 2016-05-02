@@ -1,4 +1,6 @@
-<?php $this->layout('base::website_layout', ['title' => 'Index']) ?>
+<?php $this->layout('base::website_layout', [
+  'title' => 'Index',
+  'models' => $models]) ?>
 
 <h1>Index</h1>
 <a href="test_templates.php">Test Templates</a><br>

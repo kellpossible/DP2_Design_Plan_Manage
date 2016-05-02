@@ -28,37 +28,46 @@
 			</div>
 			<nav class="navbar navbar-default">
 				<?php $navbar = [
-					"Home" => "/index.php",
-					"Inventory" => "/index.php/Inventory/ViewInventory",
-					"Add Stock Item" => "/index.php/Inventory/NewItem",
-					"Stock Report" => "/index.php/Report/NewStockReport"
+					"Home" => "/",
+					"Inventory" => "/Inventory/ViewInventory",
+					"Add Stock Item" => "/Inventory/NewItem",
+					"Stock Report" => "/Report/NewStockReport"
 				];
+
+        $users = $models['users'];
+
+        if ($users->isLoggedIn())
+        {
+          $navbar["Logout"] = "/Login/Logout";
+        } else {
+          $navbar["Login"] = "/Login/Login";
+        }
 
 				$path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
 				?>
 				<ul class="nav navbar-nav">
 					<?php foreach($navbar as $item_name=>$href_value): ?>
-						<li<?php if($path == trim($href_value, "/")): ?> class="active"<?php endif ?>>
-						<a href="<?=$href_value?>"><?=$item_name?></a>
+						<li <?=$this->uri($href_value,'class="active"')?>>
+						<a href="/index.php<?=$href_value?>"><?=$item_name?></a>
 						</li>
 					<?php endforeach ?>
 				</ul>
 			</nav>
 
-		<?=$this->section('content')?>  
-            
+		<?=$this->section('content')?>
+
 		</div>
         <footer class="footer">
             <div class="container">
-                <div class="well"> 
+                <div class="well">
 				<div id="footer" align="center">
             <p><a href="/static/images/Test.pdf"><strong>User Manual</strong></a> </br>
-             
+
              &copy; People Health Pharmacy Sales Reporting System
                </p>
                </div>
                 </div>
             </div>
-        </footer> 
+        </footer>
 	</body>
 </html>

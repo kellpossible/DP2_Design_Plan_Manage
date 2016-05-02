@@ -1,0 +1,21 @@
+Date/Location: 25-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell
+Start Time: 5.06PM
+End Time: 5.30PM
+
+What we did yesterday
+=========
+Uros - finished designing additonal table
+Christine - didn't have a lot of time to work on the task, played around with charts php locally
+Jaclyn -   Designed what the report might look like
+Plans today
+=======
+Uros - will begin implementing it into the db and see if anything extra is needed
+Christine - will start integrating into our code 
+Jaclyn - Continue with the reports
+
+Roadbloacks
+=======
+Uros - design needs some tweaking and more testing
+Christine - 
+Jaclyn - 

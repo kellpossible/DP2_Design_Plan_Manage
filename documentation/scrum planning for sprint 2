@@ -1,0 +1,78 @@
+Tutorial for SPPM - 20/04/2016
+-------------------------------
+
+- Done , use iso standard 9126.
+
+------------------------------
+
+Project backlog - Sprint 2
+-----------------------------------
+
+- API for simulation of barcode scanning?
+- Add imcompleted items from sprint 1. 
+- Use json to transfer DATA.
+- new table, each time item gets sold, item ID and date it was bought, quantity, transaction table. amount in dollars sold.
+- login page should be part of backlog.
+
+
+9126
+-------
+
+Functionality
+--------------
+	- Suitability. 
+	  As long as the functionality does what it is supposed to do then it is suitable. 
+	- Accuracy, 
+	  Should be accurate, simple tasks are performed and done, no chance to make error.
+	- Compliance, front end stuff should pass web standards for html (can run test.)
+	- Security - Login, users can't access without loging in.
+
+
+Reliability
+---------------
+	- Maturity
+	  Should only fail once a month
+	- fault tollerance
+	  database fault tollerance, database is robust. 
+	  If crashes, redirect to error page. 
+	- Recoverability
+	  Should be able to automatically recover. 
+
+Usability 
+---------------
+	- Understandability
+	- Learnability
+	  User Manual, Half an hour learning time. 
+	- Operability
+	  Tablet, in a pharmacy.
+
+
+Efficiency
+--------------------
+	- Time Behaviour
+	  1 second for operations. 
+
+	- Resource behaviour
+	  Should be able to run on a average computer/laptop without draining resources noticebly.
+
+
+Maintainability
+-------------------
+	- Adaptability
+      Ability to print out stack traces and give user error. 
+    - Changability
+    - Stability
+      negative impact of changes should be restricted to modules (controllers)
+    - Testability
+      Unit testing framework. (%80 code coverage) should be (%100 right.).
+
+Portability
+---------------------
+	- Adaptability
+	  Adaption to different screen sizes, different web-browsers. Chrome, Firefox, IE 9.0
+	- Installability
+
+	- Conformance
+	  SQL lite database, most languages support SQLite. 
+	- Replaceability
+	  

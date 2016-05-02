@@ -1,0 +1,145 @@
+@startuml
+
+class FrontController
+
+package Database {
+  class SQLite3
+  class Database
+}
+package Models {
+  class ProductInventory {
+    str getName()
+    void setName(str)
+    float getCostPrice()
+    void setCostPrice(float)
+    float getSalePrice()
+    void setSalePrice(flaot)
+    int getStockLevel()
+    void setStockLevel(int)
+  }
+
+  class ProductInventoryItem
+
+  class ItemModel {
+    static ItemModel FromRowArray(table_model, row)
+    static ItemModel FromDB(table_model, pk)
+    int getPrimaryKey()
+    void insertIntoDB()
+    void deleteFromDB()
+    void pullValuesFromDB()
+    void pushValuesToDB()
+  }
+
+  class TableModel {
+    ItemModel getItemByKey(int PK)
+  }
+
+  class User {
+    str username
+    str password
+
+    str getUserName()
+    str getPassword()
+  }
+
+  class Users {
+    bool login(username, password)
+    bool isLoggedIn()
+    void logout()
+  }
+
+  TableModel <|-left- ProductInventory
+  TableModel <|-right- Users
+  ItemModel <|-left- ProductInventoryItem
+  ItemModel <|-right- User
+  TableModel *-down- ItemModel
+  ItemModel o-up- TableModel
+}
+
+package Controllers {
+  class Controller {
+    url assigned to that controller
+    --
+    # void requireLogin(return_uri)
+    return_value[View or detail associated with return value] methodName()
+  }
+
+  note left of Controller
+  methodName also corresponds to the url,
+  so /controller/method
+
+  return values could be:
+   - html
+   - css
+   - javascript
+   - redirection
+  end note
+
+  class LoginController {
+    url = /login/
+    --
+    html[Login or redirection on POST from form] login()
+    redirection logout()
+  }
+  class InventoryController {
+    url = /inventory/
+    --
+    html[NewInventoryItem] or redirect[on POST from form] NewItem()
+    html[NewInventoryItem] or redirect[on POST from form] EditItem()
+    html[InventoryItemTable] ViewInventory()
+    redirect DeleteItem()
+  }
+
+  class ReportController {
+    url = /report/
+    --
+    html[StockReport] ViewStockReport()
+  }
+
+  Controller <|-- ReportController
+  Controller <|-- InventoryController
+  Controller <|-- LoginController
+}
+
+package Views {
+  package user {
+    class login
+  }
+
+  package report {
+    class new_stock_report
+    class stock_report
+  }
+
+  package inventory {
+    class edit_inventory_item
+    class inventory_item_table
+    class new_inventory_item
+  }
+
+  package index {
+    class index
+  }
+
+  package base {
+    class edit_item
+    class item_form
+    class item_table
+    class new_item
+    class website_layout
+  }
+
+  website_layout <|-- new_item
+  website_layout <|-- edit_item
+  website_layout <|-- item_table
+  website_layout <|-- item_form
+  website_layout <|-- index
+  website_layout <|-- stock_report
+  website_layout <|-- new_stock_report
+
+  item_form <|-- new_inventory_item
+  item_form <|-- edit_inventory_item
+  item_form <|-- login
+  website_layout <|-- inventory_item_table
+}
+@enduml
