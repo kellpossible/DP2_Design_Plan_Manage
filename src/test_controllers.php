@@ -10,8 +10,9 @@ require_once('vendor/autoload.php');
 
 
 $db = openDatabase(true);
-$product_inventory = new ProductInventory($db);
-$models = ['product_inventory' => $product_inventory];
+$models = array();
+$models[Users::getModelName()] = new Users($db, $models);
+$models[ProductInventory::getModelName()] = new ProductInventory($db, $models);
 
 $templates = new League\Plates\Engine();
 $templates->addFolder('base', 'views/base');

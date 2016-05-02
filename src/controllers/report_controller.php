@@ -56,14 +56,14 @@ class ReportController extends Controller
 			echo("invalid report arguments");
 		}
 	}
-    
-    public function SalesIncomeReport()
-    {
-        $this->requireLogin("/index.php/Report/SalesIncomeReport");
-        
-        
-        //$this->InitialiseGraph();
-        echo $this->templates->render('report::income_report');
+	
+	
+
+	public function SalesIncomeReport()
+	{
+		$this->requireLogin("/index.php/Report/SalesIncomeReport");
+		//$this->InitialiseGraph();
+        	echo $this->templates->render('report::income_report');
             
             
         

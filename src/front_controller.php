@@ -1,14 +1,49 @@
 <?php
+require_once('vendor/autoload.php');
+// ---- set up error handling ----
+
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Handler\JsonResponseHandler;
+
+$run     = new Whoops\Run;
+$handler = new PrettyPageHandler;
+
+// Add some custom tables with relevant info about your application,
+// that could prove useful in the error page:
+// $handler->addDataTable('Killer App Details', array(
+//   "Important Data" => $myApp->getImportantData(),
+//   "Thingamajig-id" => $someId
+// ));
+
+// Set the title of the error page:
+$handler->setPageTitle("Whoops! There was a problem.");
+
+$run->pushHandler($handler);
+
+// Add a special handler to deal with AJAX requests with an
+// equally-informative JSON response. Since this handler is
+// first in the stack, it will be executed before the error
+// page handler, and will have a chance to decide if anything
+// needs to be done.
+if (Whoops\Util\Misc::isAjaxRequest()) {
+  $run->pushHandler(new JsonResponseHandler);
+}
+
+// Register the handler with PHP, and you're set!
+$run->register();
+
+// --- end set up error handling ---
+
 session_start();
 
 require_once('data/database.php');
 require_once('models/product_inventory.php');
 require_once('models/user.php');
+require_once('models/purchases.php');
 require_once('controllers/inventory_controller.php');
 require_once('controllers/index_controller.php');
 require_once('controllers/login_controller.php');
 require_once('controllers/report_controller.php');
-require_once('vendor/autoload.php');
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -39,11 +74,10 @@ class FrontController {
 		$this->templates->addFolder('report', 'views/report');
 		$this->templates->addFolder('index', 'views/index');
 
-		$this->models = [
-		'product_inventory' => new ProductInventory($db),
-		'users' => new Users($db)
-		];
-
+		$this->models = array();
+		$this->models[ProductInventory::getModelName()] = new ProductInventory($db, $this->models);
+		$this->models[Users::getModelName()] = new Users($db, $this->models);
+		$this->models[Purchases::getModelName()] = new Purchases($db, $this->models);
 
 		if (empty($options)) {
            $this->parseUri();
