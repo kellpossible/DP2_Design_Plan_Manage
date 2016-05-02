@@ -60,13 +60,31 @@ class ReportController extends Controller
 	
 
 	public function SalesIncomeReport()
-	{
-		$this->requireLogin("/index.php/Report/SalesIncomeReport");
-		//$this->InitialiseGraph();
-        	echo $this->templates->render('report::income_report');
-            
-            
+    {
+        $this->requireLogin("/index.php/Report/SalesIncomeReport");
         
+        if(isset($_POST['date']))
+        {
+            $date = $_POST['date'];
+            
+        }
+        
+        $p = new chartphp(); 
+        
+        
+        echo $this->templates->render('report::income_report',
+        [
+            'p'=>$p,
+            'date'=>$date,
+            'purchases' => $this->models['purchases'],
+            'models' => $this->models
+        ]);
+    }
+    
+    
+    public function SalesStockReport()
+    {
+        $this->requireLogin("/index.php/Report/SalesStockReport");
         
     }
 
