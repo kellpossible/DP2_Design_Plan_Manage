@@ -1,9 +1,14 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require( 'php_error.php' );
+\php_error\reportErrors();
 session_start();
 
 require_once('data/database.php');
 require_once('models/product_inventory.php');
 require_once('models/user.php');
+require_once('models/purchases.php');
 require_once('controllers/inventory_controller.php');
 require_once('controllers/index_controller.php');
 require_once('controllers/login_controller.php');
@@ -39,11 +44,10 @@ class FrontController {
 		$this->templates->addFolder('report', 'views/report');
 		$this->templates->addFolder('index', 'views/index');
 
-		$this->models = [
-		'product_inventory' => new ProductInventory($db),
-		'users' => new Users($db)
-		];
-
+		$this->models = array();
+		$this->models[ProductInventory::getModelName()] = new ProductInventory($db, $this->models);
+		$this->models[Users::getModelName()] = new Users($db, $this->models);
+		$this->models[Purchases::getModelName()] = new Purchases($db, $this->models);
 
 		if (empty($options)) {
            $this->parseUri();

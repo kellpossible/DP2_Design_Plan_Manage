@@ -9,7 +9,7 @@ class WebsiteDatabase extends SQLite3
    }
 
    /** returns a boolean depending on whether or not the table of $table_name exists
-   * in this database 
+   * in this database
    * table_name: the name of the table we want to check exists.
    *
    * returns: a boolean
@@ -34,7 +34,7 @@ class WebsiteDatabase extends SQLite3
    /* Create tables if they don't already exist and add necessary items */
 
    /* 1.2 Date and Time Datatype
-      SQLite does not have a storage class set aside for storing dates and/or times. Instead, 
+      SQLite does not have a storage class set aside for storing dates and/or times. Instead,
       the built-in Date And Time Functions of SQLite are capable of storing dates and times as TEXT, REAL, or INTEGER values:
 
       TEXT as ISO8601 strings ("YYYY-MM-DD HH:MM:SS.SSS").
@@ -260,7 +260,20 @@ EOF;
       // echo "<br>column 0 type: ".$query_result->columnType(0);
       // echo "<br>SQLITE3_NULL: ".SQLITE3_NULL."<br>";
       return $query_result->fetchArray(SQLITE3_ASSOC);
-      
+   }
+
+   /** counts rows by column value
+   */
+   function countRowsByColumnValue($table_name, $column_name, $column_value)
+   {
+     $sql = sprintf(
+         "SELECT COUNT(*) FROM %s WHERE %s=\"%s\"",
+         $table_name,
+         $column_name,
+         SQLite3::escapeString($column_value));
+      //echo $sql;
+      $query_result = $this->querySingle($sql);
+      return $query_result;
    }
 
    /** deletes a row from a table by column value
@@ -299,7 +312,7 @@ EOF;
    /* Change the values in a row.
    * table_name: name of the table we are editing
    * key_column_name: The name of the colun we are using as a key (normally ID)
-   * key_value: The value of the key we use to select the row to edit 
+   * key_value: The value of the key we use to select the row to edit
    *  (normally just the ID value)
    * row: an array containing keys for the columns we want to edit, and values for the values of
    *  those columns
@@ -309,15 +322,15 @@ EOF;
       foreach($row as $column_name=>$column_value)
       {
          $this->editValue(
-            $table_name, 
+            $table_name,
             $key_column_name,
-            $key_value, 
-            $column_name, 
+            $key_value,
+            $column_name,
             $column_value);
       }
    }
 
-   /** get an array of arrays of rows 
+   /** get an array of arrays of rows
    * table_name: name of the table we are getting
    */
    function getRows($table_name)
@@ -330,7 +343,7 @@ EOF;
       {
          array_push($rows, $row);
       }
-      
+
       return $rows;
    }
 
@@ -364,7 +377,7 @@ EOF;
 
    }
 
-   /** get the number of rows in a table 
+   /** get the number of rows in a table
    * table_name: name of the table
    */
    function getNumberOfRows($table_name)
@@ -380,9 +393,9 @@ EOF;
    function selectLessThan($table_name, $column_name, $column_value)
    {
       $sql = sprintf(
-         "SELECT * FROM %s WHERE %s < \"%s\"", 
-         $table_name, 
-         $column_name, 
+         "SELECT * FROM %s WHERE %s < \"%s\"",
+         $table_name,
+         $column_name,
          $column_value);
 
       $rows = array();
@@ -401,9 +414,9 @@ EOF;
    function selectGreaterThan($table_name, $column_name, $column_value)
    {
       $sql = sprintf(
-         "SELECT * FROM %s WHERE %s > \"%s\"", 
-         $table_name, 
-         $column_name, 
+         "SELECT * FROM %s WHERE %s > \"%s\"",
+         $table_name,
+         $column_name,
          $column_value);
 
       $rows = array();
@@ -414,7 +427,7 @@ EOF;
       }
       return $rows;
    }
-   
+
    /**
    * table_name: name of the table we are getting
    * key_column_name: The name of the colun we are using as a key (normally ID)
@@ -466,6 +479,6 @@ function openDatabase($testing=false) {
 }
 
 
-   
-// 
+
+//
 ?>

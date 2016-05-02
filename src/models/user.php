@@ -1,9 +1,14 @@
 <?php
 class Users extends TableModel
 {
-	public function __construct($db)
+	public function __construct($db, $models)
 	{
-		parent::__construct($db, "USERS", "User");
+		parent::__construct($db, $models, "USERS", "User");
+	}
+
+	public static function getModelName()
+	{
+		return "users";
 	}
 
 	/**

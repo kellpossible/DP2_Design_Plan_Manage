@@ -1,6 +1,7 @@
 <?php
 require_once("controllers/controller.php");
 require_once("models/product_inventory.php");
+require_once("models/purchases.php");
 /**
 * Controls the viewing/generating of reports
 */
@@ -42,7 +43,12 @@ class ReportController extends Controller
 		} else {
 			echo("invalid report arguments");
 		}
+	}
 
+	public function DownloadSalesReportCSV()
+	{
+		$this->requireLogin("/index.php/Report/DownloadSalesReportCSV");
+		echo $this->models[Purchases::getModelName()]->countByInventoryItem(12);
 	}
 }
 ?>
