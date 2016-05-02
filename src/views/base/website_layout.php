@@ -32,8 +32,8 @@
 					"Inventory" => "/Inventory/ViewInventory",
 					"Add Stock Item" => "/Inventory/NewItem",
 					"Stock Report" => "/Report/NewStockReport",
-          				"Download Report CSV" => "/Report/DownloadSalesReportCSV"
-					"Reports" => 
+          "Download Report CSV" => "/Report/DownloadSalesReportCSV",
+					"Reports" =>
                     [
                         "Stock Report" => "/Report/NewStockReport",
                         "Income Report" => "/Report/SalesIncomeReport",
@@ -43,7 +43,7 @@
                         "Least Items Sold" => "/Report/LeastSoldReport",
                     ],
                     "Download Report CSV" => "/Report/DownloadSalesReportCSV",
-                    
+
 				];
 
         $users = $models['users'];
@@ -63,9 +63,9 @@
 						<li <?=$this->uri($href_value,'class="active"')?>>
 						<a href="/index.php<?=$href_value?>"><?=$item_name?></a>
 						</li>
-                    
+
                         <?php else :?>
-                    
+
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
                             <span class="caret"></span>
@@ -78,7 +78,7 @@
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-                            
+
                         <?php endif; ?>
 					<?php endforeach ?>
 				</ul>
