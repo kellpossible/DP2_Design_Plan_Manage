@@ -55,13 +55,17 @@ class WebsiteDatabase extends SQLite3
          SALE_PRICE      REAL    NOT NULL,
          STOCK_LEVEL     INTEGER NOT NULL,
          DESCRIPTION     TEXT);
-
+EOF;      
+      if (!$this->checkTableExists("USERS")) {
+         $sql =<<<EOF
          CREATE TABLE USERS
          (ID INTEGER PRIMARY KEY AUTOINCREMENT,
          USERNAME  TEXT NOT NULL,
          PASSWORD  TEXT NOT NULL,
          FULL_NAME TEXT NOT NULL);
-         
+EOF;        
+      if (!$this->checkTableExists("PURCHASES")) {
+         $sql =<<<EOF
          CREATE TABLE PURCHASES
          (ID INTEGER PRIMARY KEY AUTOINCREMENT,
          DATE           TEXT     NOT NULL,
