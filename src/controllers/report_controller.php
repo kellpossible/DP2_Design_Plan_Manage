@@ -105,6 +105,24 @@ class ReportController extends Controller
 			echo("invalid report arguments");
 		}
     }
+    
+     public function LeastSoldReport()
+    {
+    	$this->requireLogin("/index.php/Report/LeastSoldReport");
+    	
+    		$data= NULL;
+		if(isset( $_POST['data'])){
+			$data = $_GET['getLeastSold($data)'];
+			echo $this->templates->render('report::least_sold_report',
+			[
+				'purchases' => $this->models['purchases'],
+				'data' => $data,
+				'models' => $this->models
+			]);
+		} else {
+			echo("invalid report arguments");
+		}
+    }
 
 	//using the example found here: http://code.stephenmorley.org/php/creating-downloadable-csv-files/
 	public function DownloadSalesReportCSV()
