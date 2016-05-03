@@ -10,6 +10,8 @@
 		<script src="/static/js/jquery.min.js"></script>
 		<!--All Bootstrap plugin files-->
 		<script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/sortable-theme-bootstrap.css" />
+    <script src="/static/js/sortable.min.js"></script>
 	</head>
 	<body>
 		<div class="container - fluid">
