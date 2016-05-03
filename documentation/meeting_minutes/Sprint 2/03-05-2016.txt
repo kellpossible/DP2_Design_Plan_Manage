@@ -1,0 +1,28 @@
+Date/Location: 03-05-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5.00PM
+End Time: 5.05PM
+
+What we did yesterday
+=========
+Uros - continue working on the functionality of the database 
+Luke - finished testing the csv report converter 
+Jaclyn - 
+Yasser - 
+Christine - worked on class diagram for sales report, menu bar, income report GUI and controller 
+
+Plans today
+=======
+Uros - fixing the erorr within the database functionality  grabbing data for the date
+Luke - testing and checking any tasks other team members might need help with, renamed file 
+Jaclyn - created functionality and GUI for Most and least sold report, waiting for testing 
+Yasser - 
+Christine - connect to the graph to the data from model, attempt to populate array from db results 
+
+Roadbloacks
+=======
+Uros - 
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - 
