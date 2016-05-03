@@ -8,17 +8,7 @@ require_once('lib/inc/chartphp_dist.php');
 * Controls the viewing/generating of reports
 */
 class ReportController extends Controller
-{
-    
-    private $p = NULL;
-    
-    
-    public function InitialiseGraph()
-    {
-        $p = new chartphp(); 
-        
-    }
-    
+{    
 	public function NewStockReport()
 	{
 		$this->requireLogin("/index.php/Report/NewStockReport");
