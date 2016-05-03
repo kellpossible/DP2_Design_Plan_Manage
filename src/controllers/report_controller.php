@@ -87,6 +87,24 @@ class ReportController extends Controller
         $this->requireLogin("/index.php/Report/SalesStockReport");
         
     }
+    
+    public function MostSoldReport()
+    {
+    	$this->requireLogin("/index.php/Report/MostSoldReport");
+    	
+    		$sold_items= NULL;
+		if(isset( $_GET['sold_items_more_than'])){
+			$sold_items_more_than = $_GET['sold_items_more_than'];
+			echo $this->templates->render('report::most_sold_report',
+			[
+				'purchases' => $this->models['purchases'],
+				'sold_items_more_than' => $sold_items_more_than,
+				'models' => $this->models
+			]);
+		} else {
+			echo("invalid report arguments");
+		}
+    }
 
 	//using the example found here: http://code.stephenmorley.org/php/creating-downloadable-csv-files/
 	public function DownloadSalesReportCSV()
