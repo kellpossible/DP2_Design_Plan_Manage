@@ -1,4 +1,4 @@
-<?php 
+<?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -6,7 +6,7 @@ require_once('data/database.php');
 
 $db = openDatabase(true);
 
-// TESTING: for deleting Rows. 
+// TESTING: for deleting Rows.
 //echo("delete test".$db->deleteRowByColumnValue("PRODUCT_INVENTORY", "STOCK_LEVEL", 2));
 
 // TESTING: for inserting new Row data.
@@ -62,6 +62,17 @@ foreach($rows as $row)
 	echo "</tr>\n";
 }
 echo "</table>";
+
+$d1 = new DateTime("2016-05-01 00:00:00");
+$d2 = new DateTime("2016-05-05 00:00:00");
+
+$rows = $db->getRows("PURCHASES");
+echo "Testing Time Range";
+echo print_r($rows);
+
+$range_rows = $db->getRowsByRange("PURCHASES", "DATE", $d1->getTimestamp(), $d1->getTimestamp());
+echo "Testing Time Range";
+echo print_r($range_rows);
 
 echo "<h2>Select High Stock</h2>";
 $rows = $db->selectHighStockItems("PRODUCT_INVENTORY", "STOCK_LEVEL", "50");
