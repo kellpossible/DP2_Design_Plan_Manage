@@ -168,7 +168,7 @@ abstract class TableModel implements Iterator, Countable
 
 	function phpDateToSqliteDate($php_date)
 	{
-		return $date->format(DATE_RFC3339);
+		return $php_date->format(DATE_RFC3339);
 	}
 
 	function sqliteDateToPhpDate($sqlite_date)
@@ -176,9 +176,9 @@ abstract class TableModel implements Iterator, Countable
 		return new DateTime($sqlite_date);
 	}
 
-	public function getItemsByRange($column_name, $minmum, $maximum)
+	public function getItemsByRange($column_name, $minimum, $maximum)
 	{
-		$minimum_val = $minmum;
+		$minimum_val = $minimum;
 		$maximum_val = $maximum;
 		if ($minimum instanceof DateTime)
 		{

@@ -131,6 +131,7 @@ echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
 
 
 echo "<h2>Testing: purchases model</h2>";
+echo "<h3>get all and reference inventory</h3>";
 echo "<table>\n";
 foreach($purchases as $purchased_item)
 {
@@ -149,8 +150,38 @@ foreach($purchases as $purchased_item)
 		$purchased_item->getDate()->format(DATE_RFC3339));
 }
 echo "</table>\n<br>\n";
+echo "<h3>get date range</h3>";
+$d1 = new DateTime("2016-05-01 00:00:00"); //start date
+$d2 = new DateTime("2016-05-08 00:00:00"); //end date
+echo "From ";
+echo $d1->format(DATE_RFC3339);
+echo " To ";
+echo $d2->format(DATE_RFC3339);
+echo "<br>";
+
+$selected_items = $purchases->getItemsByDateRange($d1, $d2);
+echo "<table>\n";
+foreach($selected_items as $purchased_item)
+{
+	echo "<tr>\n";
+	$inventory_item = $purchased_item->getInventoryItem();
+	$item_name = "";
+	if (is_null($inventory_item))
+	{
+		$item_name = sprintf("Missing Item (ID = %s)", $purchased_item->getID_Inventory());
+	} else {
+		$item_name = $inventory_item->getName();
+	}
+	echo sprintf(
+		"<td>Item Name: %s</td><td>Date: %s</td>",
+		$item_name,
+		$purchased_item->getDate()->format(DATE_RFC3339));
+}
+echo "</table>\n<br>\n";
 
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
+
+
 
 
 $db->close();

@@ -69,7 +69,8 @@ echo "</table>";
 echo "<h2>Testing Time Range</h2>";
 echo "<br>";
 $d1 = new DateTime("2016-05-01 00:00:00"); //start date
-$d2 = new DateTime("now");
+$d2 = new DateTime("2016-05-20 00:00:00");
+// $d2 = new DateTime("now"); to get the current time
 echo "From ";
 echo $d1->format(DATE_RFC3339);
 echo " To ";
@@ -113,11 +114,6 @@ foreach($rows as $row)
 	echo "</tr>\n";
 }
 echo "</table>";
-
-
-// TESTING: for editing data
-//echo("Edit test:".$db->editValue("PRODUCT_INVENTORY", "ID", 22, "COST_PRICE", 15.99));
-
 
 $db->close();
 ?>

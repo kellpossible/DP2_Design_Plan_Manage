@@ -22,6 +22,11 @@ class Purchases extends TableModel
 	{
 		return $this->countByColumnValue("ID_INVENTORY", $id_inventory);
 	}
+
+	public function getItemsByDateRange(DateTime $start_date, DateTime $end_date)
+	{
+		return $this->getItemsByRange("DATE", $start_date, $end_date);
+	}
 }
 /** Represents an inventory item in the product inventory table.
 */
