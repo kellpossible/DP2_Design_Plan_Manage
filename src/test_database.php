@@ -1,4 +1,5 @@
 <?php
+use DateTime;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -67,14 +68,14 @@ echo "</table>";
 
 echo "<h2>Testing Time Range</h2>";
 echo "<br>";
-$d1 = date("2016-05-01 00:00:00"); //start date
-$d2 = date(DATE_RFC3339); //now
+$d1 = new DateTime("2016-05-01 00:00:00"); //start date
+$d2 = new DateTime("now");
 echo "From ";
-echo $d1;
+echo $d1->format(DATE_RFC3339);
 echo " To ";
-echo $d2;
+echo $d2->format(DATE_RFC3339);
 echo "<br>";
-$range_rows = $db->getRowsByRange("PURCHASES", "DATE", $d1, $d2);
+$range_rows = $db->getRowsByRange("PURCHASES", "DATE", $d1->format(DATE_RFC3339), $d2->format(DATE_RFC3339));
 echo print_r($range_rows);
 
 echo "<h2>Select High Stock</h2>";
