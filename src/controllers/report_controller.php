@@ -46,16 +46,10 @@ class ReportController extends Controller
 			echo("invalid report arguments");
 		}
 	}
-	
-	
-
-    public function SalesIncomeReport()
+    
+    public function GetDateSelected()
     {
-        $this->requireLogin("/index.php/Report/SalesIncomeReport");
-        
         $start = new DateTime();
-        $end = new DateTime();
-        
         if(isset($_POST['date']))
         {
             $date = $_POST['date'];
@@ -67,21 +61,33 @@ class ReportController extends Controller
                 $start->modify('-1 month');
             }
             
-        }
-                
-        $start->format(DATE_RFC3339);    
-        $end->format(DATE_RFC3339); 
+        }     
+        $start->format(DATE_RFC3339);  
         
+        return $start;
+    }
+    
+    public function GetDateNow()
+    {
+         
+        $end = new DateTime();   
+        $end->format(DATE_RFC3339);
+        
+        return $end;
+    }	
+
+    public function SalesIncomeReport()
+    {
+        $this->requireLogin("/index.php/Report/SalesIncomeReport");
         
         $dataArray = array(array(array()));
         
         $p = new chartphp(); 
         
-        
         echo $this->templates->render('report::income_report',
         [
-            'start'=>$start,
-            'end'=>$end,
+            'start'=>$this->GetDateSelected(),
+            'end'=>$this->GetDateNow(),
             'p'=>$p,
             'date'=>$date,
             'dataArray'=>$dataArray,
