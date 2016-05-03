@@ -6,12 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-sacle=1.0"/>
 		<!-- Bootstrap -->
 		<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/static/css/chartphp.css" rel="stylesheet"/>
         <!--jQuery - required for Bootstrap's JavaScript plugins) -->
 		<script src="/static/js/jquery.min.js"></script>
 		<!--All Bootstrap plugin files-->
 		<script src="/static/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/static/css/sortable-theme-bootstrap.css" />
     <script src="/static/js/sortable.min.js"></script>
+    <script src="/static/js/chartphp.js"></script>
 	</head>
 	<body>
 		<div class="container - fluid">
