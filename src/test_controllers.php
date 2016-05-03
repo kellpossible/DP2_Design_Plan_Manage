@@ -1,8 +1,6 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require( 'php_error.php' );
-\php_error\reportErrors();
 
 
 require_once('data/database.php');
