@@ -36,7 +36,7 @@ class Users extends TableModel
 			return False;
 		}
 
-		if($user->getPassword() === "test")
+		if($user->getPassword() === $password)
 		{
 			$_SESSION['user'] = array(
 	        'username' => $username,
