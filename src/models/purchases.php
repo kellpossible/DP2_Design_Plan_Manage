@@ -23,6 +23,10 @@ class Purchases extends TableModel
 		return $this->countByColumnValue("ID_INVENTORY", $id_inventory);
 	}
 
+	/**
+	* Get puchase items within a given date range
+	* @return array [array of items]
+	*/
 	public function getItemsByDateRange(DateTime $start_date, DateTime $end_date)
 	{
 		return $this->getItemsByRange("DATE", $start_date, $end_date);

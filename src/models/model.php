@@ -166,16 +166,29 @@ abstract class TableModel implements Iterator, Countable
 		return $this->rowArraysToItemArray($selected_rows);
 	}
 
+	/**
+	* Convert a php DateTime to an sqlite date string
+	*/
 	function phpDateToSqliteDate($php_date)
 	{
 		return $php_date->format(DATE_RFC3339);
 	}
 
+	/**
+	* Convert an Sqlite date string into a php DateTime object
+	*/
 	function sqliteDateToPhpDate($sqlite_date)
 	{
 		return new DateTime($sqlite_date);
 	}
 
+	/**
+	* Get an array of items within a range of values in a given column.
+	* @param string $column_name [name of the column]
+	* @param mixed $minimum [minimum of the range]
+	* @param mixed $maximum [maximum of the range]
+	* @return array [array of items]
+	*/
 	public function getItemsByRange($column_name, $minimum, $maximum)
 	{
 		$minimum_val = $minimum;
