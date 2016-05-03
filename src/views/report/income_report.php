@@ -9,10 +9,10 @@
 
 <form name="income_report" action="<?=$_SERVER['PHP_SELF'];?>" method="post">
     <div class="radio col-md-offset-10">
-        <label><input type="radio" value="-6 days" name="date">Weekly</label>
+        <label><input type="radio" value="week" name="date">Weekly</label>
     </div>
     <div class="radio col-md-offset-10">
-        <label><input type="radio" value="-1 month" name="date">Monthly</label>
+        <label><input type="radio" value="month" name="date">Monthly</label>
     </div>
         <input type="submit" value="Create Report" class="btn btn-primary col-md-offset-10 col-md-2"/>
     </form>
@@ -20,13 +20,16 @@
 
 <?php
 
-if(isset($_POST['date'])){
-
-    //$sales_income = $purchases->getSalesIncome($date);
+    if(isset($_POST['date'])){
+        $salesIncome = $purchases->getItemsByDateRange($start, $end);
     
-        $p->data = array(array(array("Dove",48.25),array("Sukin",238.75),array("Colgate",95.50),array("...",300.50),array("Dove Fresh",286.80),array("Libra",400)));
-    
-        
+        foreach($salesIncome as $item){
+            $inventory_item = $item->getInventoryItem();
+            $itemsArray = array($inventory_item->getName(), $inventory_item->getCostPrice());
+            $dataArray[][] = $itemsArray;
+    }
+    //print_r($dataArray);
+        $p->data = $dataArray;
         $p->chart_type = "bar"; 
 
         // Common Options 

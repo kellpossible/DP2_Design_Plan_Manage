@@ -49,24 +49,44 @@ class ReportController extends Controller
 	
 	
 
-	public function SalesIncomeReport()
+    public function SalesIncomeReport()
     {
         $this->requireLogin("/index.php/Report/SalesIncomeReport");
+        
+        $start = new DateTime();
+        $end = new DateTime();
         
         if(isset($_POST['date']))
         {
             $date = $_POST['date'];
             
+            if($date=="week"){
+                $start->modify('-1 week');
+            }
+            else{
+                $start->modify('-1 month');
+            }
+            
         }
+                
+        $start->format(DATE_RFC3339);    
+        $end->format(DATE_RFC3339); 
+        
+        
+        $dataArray = array(array(array()));
         
         $p = new chartphp(); 
         
         
         echo $this->templates->render('report::income_report',
         [
+            'start'=>$start,
+            'end'=>$end,
             'p'=>$p,
             'date'=>$date,
+            'dataArray'=>$dataArray,
             'purchases' => $this->models['purchases'],
+            'product_inventory' => $this->models['product_inventory'],
             'models' => $this->models
         ]);
     }
@@ -75,6 +95,34 @@ class ReportController extends Controller
     public function SalesStockReport()
     {
         $this->requireLogin("/index.php/Report/SalesStockReport");
+        
+        $p = new chartphp(); 
+        
+        
+        echo $this->templates->render('report::sales_stock_report',
+        [
+            'p'=>$p,
+            'date'=>$date,
+            'purchases' => $this->models['purchases'],
+            'models' => $this->models
+        ]);
+        
+    }
+    
+    public function SalesReport()
+    {
+        $this->requireLogin("/index.php/Report/SalesStockReport");
+        
+        $p = new chartphp(); 
+        
+        
+        echo $this->templates->render('report::sales_report',
+        [
+            'p'=>$p,
+            'date'=>$date,
+            'purchases' => $this->models['purchases'],
+            'models' => $this->models
+        ]);
         
     }
     
