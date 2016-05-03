@@ -63,15 +63,18 @@ foreach($rows as $row)
 }
 echo "</table>";
 
-$d1 = new DateTime("2016-05-01 00:00:00");
-$d2 = new DateTime("2016-05-05 00:00:00");
 
-$rows = $db->getRows("PURCHASES");
-echo "Testing Time Range";
-echo print_r($rows);
 
-$range_rows = $db->getRowsByRange("PURCHASES", "DATE", $d1->getTimestamp(), $d1->getTimestamp());
-echo "Testing Time Range";
+echo "<h2>Testing Time Range</h2>";
+echo "<br>";
+$d1 = date("2016-05-01 00:00:00"); //start date
+$d2 = date(DATE_RFC3339); //now
+echo "From ";
+echo $d1;
+echo " To ";
+echo $d2;
+echo "<br>";
+$range_rows = $db->getRowsByRange("PURCHASES", "DATE", $d1, $d2);
 echo print_r($range_rows);
 
 echo "<h2>Select High Stock</h2>";

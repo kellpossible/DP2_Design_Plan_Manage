@@ -357,12 +357,12 @@ EOF;
   function getRowsByRange($table_name, $value_column_name, $value_min, $value_max)
   {
     $sql = sprintf(
-      "SELECT * FROM %s WHERE %s BETWEEN %s AND %s",
+      "SELECT * FROM %s WHERE %s BETWEEN \"%s\" AND \"%s\"",
       $table_name,
       $value_column_name,
       $value_min,
       $value_max);
-      
+
     $rows = array();
 
     $result = $this->query($sql);
