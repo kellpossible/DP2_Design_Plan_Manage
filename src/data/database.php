@@ -72,9 +72,9 @@ class WebsiteDatabase extends SQLite3
 
 EOF;
         $ret = $this->exec($sql);
-        databaseDebug($this, $ret, "Created PRODUCT_INVENTORY table");
+        // databaseDebug($this, $ret, "Created PRODUCT_INVENTORY table");
       } else {
-         echo "PRODUCT_INVENTORY table already exists, not creating";
+        //  echo "PRODUCT_INVENTORY table already exists, not creating";
       }
       if (!$this->checkTableExists("USERS")) {
         $sql =<<<EOF
@@ -84,12 +84,12 @@ EOF;
         PASSWORD  TEXT NOT NULL,
         FULL_NAME TEXT NOT NULL);
 
-        INSERT INTO USERS (USERNAME, PASSWORD, FULL_NAME) VALUES ("tester", "testing", "Test Person");
+        INSERT INTO USERS (USERNAME, PASSWORD, FULL_NAME) VALUES ("test", "test", "Test Person");
 EOF;
         $ret = $this->exec($sql);
-        databaseDebug($this, $ret, "Created USERS table");
+        // databaseDebug($this, $ret, "Created USERS table");
       } else {
-         echo "USERS table already exists, not creating";
+        //  echo "USERS table already exists, not creating";
       }
 
       if (!$this->checkTableExists("PURCHASES")) {
@@ -227,10 +227,10 @@ EOF;
         INSERT INTO PURCHASES (DATE, ID_INVENTORY) VALUES (datetime("2016-05-31"), 2);
 EOF;
         $ret = $this->exec($sql);
-        databaseDebug($this, $ret, "Created PURCHASES table");
+        // databaseDebug($this, $ret, "Created PURCHASES table");
          //databaseDebug($this, $ret, "Created product inventory table");
       } else {
-         echo "PURCHASES table already exists, not creating";
+        //  echo "PURCHASES table already exists, not creating";
       }
    }
 
