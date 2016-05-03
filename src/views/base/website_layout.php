@@ -31,7 +31,6 @@
 					"Home" => "/",
 					"Inventory" => "/Inventory/ViewInventory",
 					"Add Stock Item" => "/Inventory/NewItem",
-					"Stock Report" => "/Report/NewStockReport",
           "Download Report CSV" => "/Report/DownloadSalesReportCSV",
 					"Reports" =>
                     [
