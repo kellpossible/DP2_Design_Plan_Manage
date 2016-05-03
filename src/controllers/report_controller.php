@@ -92,13 +92,13 @@ class ReportController extends Controller
     {
     	$this->requireLogin("/index.php/Report/MostSoldReport");
     	
-    		$sold_items= NULL;
-		if(isset( $_GET['sold_items_more_than'])){
-			$sold_items_more_than = $_GET['sold_items_more_than'];
+    		$data= NULL;
+		if(isset( $_POST['data'])){
+			$data = $_GET['getMostSold($data)'];
 			echo $this->templates->render('report::most_sold_report',
 			[
 				'purchases' => $this->models['purchases'],
-				'sold_items_more_than' => $sold_items_more_than,
+				'data' => $data,
 				'models' => $this->models
 			]);
 		} else {
