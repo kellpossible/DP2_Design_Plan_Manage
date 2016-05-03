@@ -1,4 +1,5 @@
-<?php 
+<?php
+use DateTime;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -6,7 +7,7 @@ require_once('data/database.php');
 
 $db = openDatabase(true);
 
-// TESTING: for deleting Rows. 
+// TESTING: for deleting Rows.
 //echo("delete test".$db->deleteRowByColumnValue("PRODUCT_INVENTORY", "STOCK_LEVEL", 2));
 
 // TESTING: for inserting new Row data.
@@ -63,6 +64,21 @@ foreach($rows as $row)
 }
 echo "</table>";
 
+
+
+echo "<h2>Testing Time Range</h2>";
+echo "<br>";
+$d1 = new DateTime("2016-05-01 00:00:00"); //start date
+$d2 = new DateTime("2016-05-20 00:00:00");
+// $d2 = new DateTime("now"); to get the current time
+echo "From ";
+echo $d1->format(DATE_RFC3339);
+echo " To ";
+echo $d2->format(DATE_RFC3339);
+echo "<br>";
+$range_rows = $db->getRowsByRange("PURCHASES", "DATE", $d1->format(DATE_RFC3339), $d2->format(DATE_RFC3339));
+echo print_r($range_rows);
+
 echo "<h2>Select High Stock</h2>";
 $rows = $db->selectHighStockItems("PRODUCT_INVENTORY", "STOCK_LEVEL", "50");
 echo "<table>";
@@ -98,11 +114,6 @@ foreach($rows as $row)
 	echo "</tr>\n";
 }
 echo "</table>";
-
-
-// TESTING: for editing data
-//echo("Edit test:".$db->editValue("PRODUCT_INVENTORY", "ID", 22, "COST_PRICE", 15.99));
-
 
 $db->close();
 ?>

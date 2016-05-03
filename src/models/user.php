@@ -1,7 +1,7 @@
 <?php
 class Users extends TableModel
 {
-	public function __construct($db, $models)
+	public function __construct($db, &$models)
 	{
 		parent::__construct($db, $models, "USERS", "User");
 	}
@@ -19,8 +19,24 @@ class Users extends TableModel
 	*/
 	public function login($username, $password) : bool
 	{
-		//TODO: implement proper database login stuff;
-		if($username === "test" and $password === "test")
+		$items = $this->getItemsByValue("USERNAME", $username);
+		if (is_null($items))
+		{
+			return False;
+		}
+
+		if (sizeof($items) == 0)
+		{
+			return False;
+		}
+
+		$user = $items[0];
+		if (is_null($user))
+		{
+			return False;
+		}
+
+		if($user->getPassword() === "test")
 		{
 			$_SESSION['user'] = array(
 	        'username' => $username,

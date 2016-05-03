@@ -1,20 +1,39 @@
-<?php 
+<?php
+use ProductInventory;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once('data/database.php');
 require_once('models/product_inventory.php');
 require_once('models/user.php');
+require_once('models/purchases.php');
+
+
+
 
 echo("<h1>Testing Models</h1>");
 $db = openDatabase(true);
 echo("<br><br>");
 
+function test_pass(&$test_a)
+{
+
+}
+
+
+$models = array();
+$models[ProductInventory::getModelName()] = new ProductInventory($db, $models);
+$models[Purchases::getModelName()] = new Purchases($db, $models);
+$models[Users::getModelName()] = new Users($db, $models);
+
+$product_inventory = $models[ProductInventory::getModelName()];
+$users = $models[Users::getModelName()];
+$purchases = $models[Purchases::getModelName()];
+
 /*
 Tesing accessing the model using the foreach iterator
 */
 echo("<h2>Testing Model Access</h2>");
-$product_inventory = new ProductInventory($db);
 echo("<h3>Product Inventory</h3>");
 echo("<br>");
 foreach($product_inventory as $item)
@@ -27,7 +46,7 @@ foreach($product_inventory as $item)
 Testing getting an item from the model by its key value
 */
 echo "<h2>Testing: model->getItemByKey()</h2>";
-$item = $product_inventory->getItemByKey(2);
+$item = $product_inventory->getItemByKey(1);
 
 $test_passed = $item->getStockLevel() == 50;
 //$test_passed = true;
@@ -77,10 +96,11 @@ to reflect the changes using the pushValuesToDB() method
 */
 echo "<h2>Testing: Edit item and item->pushValuesToDB()</h2>";
 $item = $product_inventory->getItemByKey(2);
-$item->setStockLevel(60);
+$item->setStockLevel(65);
 $item->pushValuesToDB();
 
-$test_passed = $item->getStockLevel() == 60;
+$item->pullValuesFromDB();
+$test_passed = $item->getStockLevel() == 65;
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
 
 echo "<h2>Testing: item->pullValuesFromDB()</h2>";
@@ -93,7 +113,6 @@ echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
 
 
 echo "<h2>Testing: user model</h2>";
-$users = new Users($db);
 echo "<table>\n";
 foreach($users as $user)
 {
@@ -109,6 +128,60 @@ echo "</table>\n<br>\n";
 $user = $users->getItemByKey(1);
 $test_passed = $user->getUsername() == "tester";
 echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
+
+
+echo "<h2>Testing: purchases model</h2>";
+echo "<h3>get all and reference inventory</h3>";
+echo "<table>\n";
+foreach($purchases as $purchased_item)
+{
+	echo "<tr>\n";
+	$inventory_item = $purchased_item->getInventoryItem();
+	$item_name = "";
+	if (is_null($inventory_item))
+	{
+		$item_name = sprintf("Missing Item (ID = %s)", $purchased_item->getID_Inventory());
+	} else {
+		$item_name = $inventory_item->getName();
+	}
+	echo sprintf(
+		"<td>Item Name: %s</td><td>Date: %s</td>",
+		$item_name,
+		$purchased_item->getDate()->format(DATE_RFC3339));
+}
+echo "</table>\n<br>\n";
+echo "<h3>get date range</h3>";
+$d1 = new DateTime("2016-05-01 00:00:00"); //start date
+$d2 = new DateTime("2016-05-08 00:00:00"); //end date
+echo "From ";
+echo $d1->format(DATE_RFC3339);
+echo " To ";
+echo $d2->format(DATE_RFC3339);
+echo "<br>";
+
+$selected_items = $purchases->getItemsByDateRange($d1, $d2);
+echo "<table>\n";
+foreach($selected_items as $purchased_item)
+{
+	echo "<tr>\n";
+	$inventory_item = $purchased_item->getInventoryItem();
+	$item_name = "";
+	if (is_null($inventory_item))
+	{
+		$item_name = sprintf("Missing Item (ID = %s)", $purchased_item->getID_Inventory());
+	} else {
+		$item_name = $inventory_item->getName();
+	}
+	echo sprintf(
+		"<td>Item Name: %s</td><td>Date: %s</td>",
+		$item_name,
+		$purchased_item->getDate()->format(DATE_RFC3339));
+}
+echo "</table>\n<br>\n";
+
+echo "Test Passed: ".( ($test_passed) ? 'true' : 'false' );
+
+
 
 
 $db->close();
