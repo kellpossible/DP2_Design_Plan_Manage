@@ -1,11 +1,12 @@
 <?php
 require_once("models/model.php");
+require_once("models/purchases.php");
 
 /** Represents the product inventory
 */
 class ProductInventory extends TableModel
 {
-	public function __construct($db, $models)
+	public function __construct($db, &$models)
 	{
 		parent::__construct($db, $models, "PRODUCT_INVENTORY", "InventoryItem");
 	}
@@ -108,6 +109,19 @@ class InventoryItem extends ItemModel
 	{
 		$this->row["DESCRIPTION"] = $description;
 	}
+
+
+	// public function deleteFromDB()
+	// {
+	// 	parent::deleteFromDB();
+	// 	$purchases = $this->table_model->getModel(Purchases::getModelName());
+	// 	$purchase_items = $purchases->getItemsByValue("ID_INVENTORY", $this->getPrimaryKey());
+	// 	foreach ($purchase_items as $purchase_item)
+	// 	{
+	// 		echo $purchase_item->getID_Inventory();
+	// 		$purchase_item->deleteFromDB();
+	// 	}
+	// }
 
 }
 ?>

@@ -14,12 +14,12 @@ abstract class TableModel implements Iterator, Countable
 
 	/** constructor using database instance and table_name
 	the database instance needs to have a table with the table_name*/
-	public function __construct($db, $models, $table_name, $item_class)
+	public function __construct($db, &$models, $table_name, $item_class)
 	{
 		$this->db = $db;
 		$this->table_name = $table_name;
 		$this->item_class = $item_class;
-		$this->models = $models;
+		$this->models = &$models;
 	}
 
 	public static abstract function getModelName();
@@ -133,6 +133,16 @@ abstract class TableModel implements Iterator, Countable
 		return $items;
 	}
 
+	public function getItemsByValue($column_name, $value)
+	{
+		$selected_rows = $this->db->selectEqualTo(
+			$this->table_name,
+			$column_name,
+			$value);
+
+		return $this->rowArraysToItemArray($selected_rows);
+	}
+
 
 	public function getItemsByLessThan($column_name, $less_than_value)
 	{
@@ -155,13 +165,47 @@ abstract class TableModel implements Iterator, Countable
 
 		return $this->rowArraysToItemArray($selected_rows);
 	}
+
+	function phpDateToSqliteDate($php_date)
+	{
+		return $date->format(DATE_RFC3339);
+	}
+
+	function sqliteDateToPhpDate($sqlite_date)
+	{
+		return new DateTime($sqlite_date);
+	}
+
+	public function getItemsByRange($column_name, $minmum, $maximum)
+	{
+		$minimum_val = $minmum;
+		$maximum_val = $maximum;
+		if ($minimum instanceof DateTime)
+		{
+			$minimum_val = $this->phpDateToSqliteDate($minimum);
+		}
+
+		if ($maximum instanceof DateTime)
+		{
+			$maximum_val = $this->phpDateToSqliteDate($maximum);
+		}
+
+		$selected_rows = $this->db->getRowsByRange(
+			$this->table_name,
+			$column_name,
+			$minimum_val,
+			$maximum_val);
+
+
+		return $this->rowArraysToItemArray($selected_rows);
+	}
 }
 
 /** Represents an item/row in a table of a database */
 abstract class ItemModel
 {
 	protected $row;
-	private $table_model;
+	protected $table_model;
 	private $db;
 	private $pk_name;
 

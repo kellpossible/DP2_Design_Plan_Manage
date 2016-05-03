@@ -415,7 +415,7 @@ EOF;
 
    /** Table name, column name and column value
    * returns an array of an array of records that have
-   * a stock level lower than the column value specified
+   * a value lower than the column value specified
    */
    function selectLessThan($table_name, $column_name, $column_value)
    {
@@ -436,12 +436,33 @@ EOF;
 
    /** Table name, column name and column value
    * returns an array of an array of records that have
-   * a stock level higher than the column value specified
+   * a value higher than the column value specified
    */
    function selectGreaterThan($table_name, $column_name, $column_value)
    {
       $sql = sprintf(
          "SELECT * FROM %s WHERE %s > \"%s\"",
+         $table_name,
+         $column_name,
+         $column_value);
+
+      $rows = array();
+      $result = $this->query($sql);
+      while($row = $result->fetchArray(SQLITE3_ASSOC))
+      {
+         array_push($rows, $row);
+      }
+      return $rows;
+   }
+
+   /** Table name, column name and column value
+   * returns an array of an array of records that have
+   * a svalue equal to the column value specified
+   */
+   function selectEqualTo($table_name, $column_name, $column_value)
+   {
+      $sql = sprintf(
+         "SELECT * FROM %s WHERE %s = \"%s\"",
          $table_name,
          $column_name,
          $column_value);

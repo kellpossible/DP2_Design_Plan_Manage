@@ -6,7 +6,7 @@ require_once("models/product_inventory.php");
 
 class Purchases extends TableModel
 {
-	public function __construct($db, $models)
+	public function __construct($db, &$models)
 	{
 		parent::__construct($db, $models, "PURCHASES", "PurchasedItem");
 	}
@@ -58,12 +58,12 @@ class PurchasedItem extends ItemModel
 
 	public function getDate()
 	{
-		return $this->row["DATE"];
+		return $this->table_model->sqliteDateToPhpDate($this->row["DATE"]);
 	}
 
-	public function setDate($date)
+	public function setDate(DateTime $date)
 	{
-		$this->row["DATE"] = $date;
+		$this->row["DATE"] = $this->table_model->phpDateToSqliteDate($date);
 	}
 
 	public function getID_inventory()
@@ -76,10 +76,10 @@ class PurchasedItem extends ItemModel
 		$this->row["ID_INVENTORY"] = $id_inventory;
 	}
 
-	public function getInventory()
+	public function getInventoryItem()
 	{
 		$product_inventory = $this->table_model->getModel(ProductInventory::getModelName());
-		return $product_inventory->getItemByKey($this->row["ID_INVENTORY"]);
+		return $product_inventory->getItemByKey($this->getID_inventory());
 	}
 }
 ?>
