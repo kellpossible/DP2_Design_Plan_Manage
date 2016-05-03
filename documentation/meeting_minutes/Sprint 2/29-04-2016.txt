@@ -1,0 +1,28 @@
+Date/Location: 29-04-2016, Telegram Messaging App. 
+Attendees: Uros Vukanovic, Christine Kunak, Jaclyn Seychell, Yasser Gulam, Luke Frisken.
+Start Time: 5.00PM
+End Time: 5.05PM
+
+What we did yesterday
+=========
+Uros - fixed purchase table
+Luke - implemented  class and sequence diagrams  and user login
+Jaclyn - working on controller and model for sales report
+Yasser - 
+Christine - making gui & functional skeleton for stock level, adding new pages to navbar
+
+Plans today
+=======
+Uros - wokring on how to cal data from purchase and inventory table
+Luke - testing user login and fixing areas of code that need improvement 
+Jaclyn - no update will make up time tomrrow  but did research into the report model and controller
+Yasser - 
+Christine - no update will make up time tomorrow 
+
+Roadbloacks
+=======
+Uros - 
+Luke - 
+Jaclyn - 
+Yasser - 
+Christine - 
