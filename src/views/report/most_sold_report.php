@@ -22,7 +22,7 @@
 
 //ideally want to be using a function like that 
    // $sold_items = $purchases->getSoldItemsMoreThan("STOCK_LEVEL", $sold_level_more_than);
-    
+    if(isset($_POST['date'])){
     //created a dummy data array of "Sold Items"
         $data = array("Dove"=>190,"Sukin" =>48, "Colgate"=>330,"..."=>1, "Dove Fresh"=>39, "Libra"=>68);
     
@@ -37,4 +37,5 @@
             }
     
         echo "</ol>";
+    }
 ?>
