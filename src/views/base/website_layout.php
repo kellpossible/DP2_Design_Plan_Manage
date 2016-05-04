@@ -62,7 +62,7 @@
             <div class="container">
                 <div class="well">
 				<div id="footer" align="center">
-            <p><a href="/static/images/Test.pdf"><strong>User Manual</strong></a> </br>
+            <p><a href="/static/images/Manual.pdf"><strong>User Manual</strong></a> </br>
 
              &copy; People Health Pharmacy Sales Reporting System
                </p>
