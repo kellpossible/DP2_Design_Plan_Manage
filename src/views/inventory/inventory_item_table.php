@@ -7,7 +7,7 @@
 
  ?>
 
-<table class='table table-hover'>
+<table class="table table-hover sortable-theme-bootstrap" data-sortable>
         <thead>
             <tr>
                 <th>Name</th>

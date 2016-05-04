@@ -3,11 +3,12 @@ require_once("controllers/controller.php");
 require_once("models/product_inventory.php");
 require_once("models/purchases.php");
 require_once('vendor/autoload.php');
+require_once('lib/inc/chartphp_dist.php');
 /**
 * Controls the viewing/generating of reports
 */
 class ReportController extends Controller
-{
+{    
 	public function NewStockReport()
 	{
 		$this->requireLogin("/index.php/Report/NewStockReport");
@@ -45,6 +46,136 @@ class ReportController extends Controller
 			echo("invalid report arguments");
 		}
 	}
+    
+    public function GetDateSelected()
+    {
+        $start = new DateTime();
+        if(isset($_POST['date']))
+        {
+            $date = $_POST['date'];
+            
+            if($date=="week"){
+                $start->modify('-1 week');
+            }
+            else{
+                $start->modify('-1 month');
+            }
+            
+        }     
+        $start->format(DATE_RFC3339);  
+        
+        return $start;
+    }
+    
+    public function GetDateNow()
+    {
+         
+        $end = new DateTime();   
+        $end->format(DATE_RFC3339);
+        
+        return $end;
+    }	
+
+    public function SalesIncomeReport()
+    {
+        $this->requireLogin("/index.php/Report/SalesIncomeReport");
+        
+        $dataArray = array(array(array()));
+        
+        $p = new chartphp(); 
+        
+        echo $this->templates->render('report::income_report',
+        [
+            'start'=>$this->GetDateSelected(),
+            'end'=>$this->GetDateNow(),
+            'p'=>$p,
+            'date'=>$date,
+            'dataArray'=>$dataArray,
+            'purchases' => $this->models['purchases'],
+            'product_inventory' => $this->models['product_inventory'],
+            'models' => $this->models
+        ]);
+    }
+    
+    
+    public function SalesStockReport()
+    {
+        $this->requireLogin("/index.php/Report/SalesStockReport");
+        
+        $p = new chartphp(); 
+        
+        $dataArray = array(array(array()));
+        
+        echo $this->templates->render('report::sales_stock_report',
+        [
+            'start'=>$this->GetDateSelected(),
+            'end'=>$this->GetDateNow(),
+            'p'=>$p,
+            'dataArray'=>$dataArray,
+            'purchases' => $this->models['purchases'],
+            'product_inventory' => $this->models['product_inventory'],
+            'models' => $this->models
+        ]);
+        
+    }
+    
+    public function SalesReport()
+    {
+        $this->requireLogin("/index.php/Report/SalesStockReport");
+        
+        $p = new chartphp(); 
+        
+        $dataArray = array(array(array()));
+        
+        echo $this->templates->render('report::sales_report',
+        [
+            'start'=>$this->GetDateSelected(),
+            'end'=>$this->GetDateNow(),
+            'p'=>$p,
+            'dataArray'=>$dataArray,
+            'purchases' => $this->models['purchases'],
+            'product_inventory' => $this->models['product_inventory'],
+            'models' => $this->models
+        ]);
+        
+    }    
+    
+    
+    public function MostSoldReport()
+    {
+    	$this->requireLogin("/index.php/Report/MostSoldReport");
+    	
+    		$data= NULL;
+		if(isset( $_POST['data'])){
+			$data = $_GET['getMostSold($data)'];
+			echo $this->templates->render('report::most_sold_report',
+			[
+				'purchases' => $this->models['purchases'],
+				'data' => $data,
+				'models' => $this->models
+			]);
+		} else {
+			echo("invalid report arguments");
+		}
+    }
+    
+     public function LeastSoldReport()
+    {
+    	$this->requireLogin("/index.php/Report/LeastSoldReport");
+    	
+    		$data= NULL;
+		if(isset( $_POST['data'])){
+			$data = $_GET['getLeastSold($data)'];
+			echo $this->templates->render('report::least_sold_report',
+			[
+				'purchases' => $this->models['purchases'],
+				'data' => $data,
+				'models' => $this->models
+			]);
+		} else {
+			echo("invalid report arguments");
+		}
+    }
 
 	//using the example found here: http://code.stephenmorley.org/php/creating-downloadable-csv-files/
 	public function DownloadSalesReportCSV()

@@ -7,15 +7,23 @@
  ?>
 
 <h1>Stock Report</h1>
-
-<ul>
 <?php $selected_stock_items = $product_inventory->getItemsByLessThan("STOCK_LEVEL", $stock_level_less_than); ?>
+<table class="table table-hover sortable-theme-bootstrap" data-sortable>
+
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Description</th>
+      <th>Stock Level</th>
+    </tr>
+  </thead>
+  <?php foreach($selected_stock_items as $item): ?>
+  <tr>
+    <td><?=$item->getName()?></td>
+    <td><?=$item->getDescription()?></td>
+    <td><?=$item->getStockLevel()?></td>
+  </tr>
+  <?php endforeach ?>
+</table>
+
 <?php //echo(print_r($selected_stock_items)); ?>
-<?php foreach($selected_stock_items as $item): ?>
-	<li>
-		<b>Product Name:</b> <?=$item->getName()?>
-		<b>Description:</b> <?=$item->getDescription()?>
-		<b>Stock Level:</b> <?=$item->getStockLevel()?>
-	</li>
-<?php endforeach ?>
-</ul>
