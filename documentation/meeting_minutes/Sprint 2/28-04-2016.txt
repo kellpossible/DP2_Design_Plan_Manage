@@ -8,7 +8,7 @@ What we did yesterday
 Uros - working on DB functions 
 Luke - making class and sequence diagrams 
 Jaclyn - working on controller and model for sales report
-Yasser - 
+Yasser - No update due to system malfunction
 Christine - making gui & functional skeleton for stock level, adding new pages to navbar
 
 Plans today
@@ -16,7 +16,7 @@ Plans today
 Uros - continue working on db functions 
 Luke - implementing the class and sequence diagrams
 Jaclyn - continue working on controller and model for sales report, finalising in order to create report
-Yasser - 
+Yasser - Fix the system
 Christine - continue making gui & functional skeleton for stock level, adding new pages to navbar 
 
 Roadbloacks

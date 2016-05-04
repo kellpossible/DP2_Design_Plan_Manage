@@ -8,7 +8,7 @@ What we did yesterday
 Uros - fixed purchase table
 Luke - implemented  class and sequence diagrams  and user login
 Jaclyn - working on controller and model for sales report
-Yasser - 
+Yasser - Fix the system
 Christine - making gui & functional skeleton for stock level, adding new pages to navbar
 
 Plans today
@@ -16,7 +16,7 @@ Plans today
 Uros - wokring on how to cal data from purchase and inventory table
 Luke - testing user login and fixing areas of code that need improvement 
 Jaclyn - no update will make up time tomrrow  but did research into the report model and controller
-Yasser - 
+Yasser - Working on Sales controller
 Christine - no update will make up time tomorrow 
 
 Roadbloacks
@@ -24,5 +24,5 @@ Roadbloacks
 Uros - 
 Luke - 
 Jaclyn - 
-Yasser - 
+Yasser - JSON API configuration
 Christine - 

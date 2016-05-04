@@ -8,7 +8,7 @@ What we did yesterday
 Uros - continue working on the functionality of the database 
 Luke - finished testing the csv report converter 
 Jaclyn - 
-Yasser - 
+Yasser - Sales Controller 
 Christine - worked on class diagram for sales report, menu bar, income report GUI and controller 
 
 Plans today
@@ -16,7 +16,7 @@ Plans today
 Uros - fixing the erorr within the database functionality  grabbing data for the date
 Luke - testing and checking any tasks other team members might need help with, renamed file 
 Jaclyn - created functionality and GUI for Most and least sold report, waiting for testing 
-Yasser - 
+Yasser - Fix errors with integration
 Christine - connect to the graph to the data from model, attempt to populate array from db results 
 
 Roadbloacks

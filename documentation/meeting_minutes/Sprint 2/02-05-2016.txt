@@ -8,7 +8,7 @@ What we did yesterday
 Uros - working on DB functions 
 Luke - created csv exporter & error reporting framework
 Jaclyn - working on most and least sold report
-Yasser - 
+Yasser - Sales Controller
 Christine - working on class diagrams 
 
 Plans today
@@ -16,7 +16,7 @@ Plans today
 Uros - fixing the models.php and creating functions for db 
 Luke - reviewing the error reporting framework and testing csv converter and working on the sales controller  
 Jaclyn - working on the funcionality of the most sold report 
-Yasser - 
+Yasser - sales controller
 Christine - working on the sales controller and created income report and graph reports 
 
 Roadbloacks
@@ -24,5 +24,5 @@ Roadbloacks
 Uros - 
 Luke - 
 Jaclyn - 
-Yasser - 
+Yasser - JSON API
 Christine - 
