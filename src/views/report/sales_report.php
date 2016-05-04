@@ -6,7 +6,7 @@
 
 <h1>Sales report</h1>
 
-<p>Select to view the total income made for either the last week or the last month</p>
+<p>Select to view the total sales made for either the last week or the last month</p>
 <form name="income_report" action="<?=$_SERVER['PHP_SELF'];?>" method="post">
     <div class="radio">
         <label><input type="radio" value="week" name="date">Weekly</label>
