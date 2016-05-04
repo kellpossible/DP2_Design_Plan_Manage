@@ -25,9 +25,7 @@
     
         foreach($sales as $item){
             $inventory_item = $item->getInventoryItem();
-            $itemsArray = array($item->getDate(),$inventory_item->getSalePrice());
-            
-            $grouping = array();            
+            $itemsArray = array(($item->getDate()->format('m-d')),$inventory_item->getSalePrice());       
             
             $dataArray[][] = $itemsArray;
         }
@@ -36,10 +34,9 @@
 
         // Common Options 
         $p->title = "Sales"; 
-$p->ylabel = "Sales"; 
-$p->series_label = array("month"); 
+        $p->series_label = array("month"); 
 
-$p->options["axes"]["yaxis"]["tickOptions"]["prefix"] = '$'; 
+        $p->options["axes"]["yaxis"]["tickOptions"]["prefix"] = '$'; 
 
         $out = $p->render('c1'); 
         echo $out;
