@@ -104,12 +104,16 @@ class ReportController extends Controller
         
         $p = new chartphp(); 
         
+        $dataArray = array(array(array()));
         
         echo $this->templates->render('report::sales_stock_report',
         [
+            'start'=>$this->GetDateSelected(),
+            'end'=>$this->GetDateNow(),
             'p'=>$p,
-            'date'=>$date,
+            'dataArray'=>$dataArray,
             'purchases' => $this->models['purchases'],
+            'product_inventory' => $this->models['product_inventory'],
             'models' => $this->models
         ]);
         
@@ -121,16 +125,21 @@ class ReportController extends Controller
         
         $p = new chartphp(); 
         
+        $dataArray = array(array(array()));
         
         echo $this->templates->render('report::sales_report',
         [
+            'start'=>$this->GetDateSelected(),
+            'end'=>$this->GetDateNow(),
             'p'=>$p,
-            'date'=>$date,
+            'dataArray'=>$dataArray,
             'purchases' => $this->models['purchases'],
+            'product_inventory' => $this->models['product_inventory'],
             'models' => $this->models
         ]);
         
-    }
+    }    
+    
     
     public function MostSoldReport()
     {

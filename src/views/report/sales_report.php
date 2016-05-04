@@ -1,12 +1,12 @@
 <?php $this->layout('base::website_layout', [
-  'title' => 'Sales Stock Report',
+  'title' => 'Sales Report',
   'models' => $models
   ])
  ?>
 
-<h1>Stock sold report</h1>
+<h1>Sales report</h1>
 
-<p>Select to view the total stock sold for either the last week or the last month</p>
+<p>Select to view the total income made for either the last week or the last month</p>
 <form name="income_report" action="<?=$_SERVER['PHP_SELF'];?>" method="post">
     <div class="radio">
         <label><input type="radio" value="week" name="date">Weekly</label>
@@ -20,21 +20,26 @@
 
 <?php
 
-if(isset($_POST['date'])){
-    
+    if(isset($_POST['date'])){
         $sales = $purchases->getItemsByDateRange($start, $end);
-    
     
         foreach($sales as $item){
             $inventory_item = $item->getInventoryItem();
-            $itemsArray = array($inventory_item->getName(), count($inventory_item->getName()));       
+            $itemsArray = array($item->getDate(),$inventory_item->getSalePrice());
+            
+            $grouping = array();            
+            
             $dataArray[][] = $itemsArray;
         }
         $p->data = $dataArray;
-        $p->chart_type = "bar"; 
+        $p->chart_type = "line"; 
 
         // Common Options 
-        $p->title = "Stock Sold"; 
+        $p->title = "Sales"; 
+$p->ylabel = "Sales"; 
+$p->series_label = array("month"); 
+
+$p->options["axes"]["yaxis"]["tickOptions"]["prefix"] = '$'; 
 
         $out = $p->render('c1'); 
         echo $out;
