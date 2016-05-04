@@ -3,7 +3,7 @@
     <head>
 		<title><?=$this->e($title)?></title>
 		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-sacle=1.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!-- Bootstrap -->
 		<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
         <!--jQuery - required for Bootstrap's JavaScript plugins) -->
